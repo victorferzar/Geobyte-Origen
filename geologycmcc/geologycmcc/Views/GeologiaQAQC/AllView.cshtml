@@ -1,0 +1,291 @@
+﻿@using geologycmcc.Models.GeologiaQAQCModels;
+<head>
+    <meta http-equiv="refresh" content="1000000">
+</head>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryui")
+@Scripts.Render("~/plugins/dataPicker")
+@Styles.Render("~/plugins/dataPickerStyles")
+
+@model DotNet.Highcharts.Highcharts
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<style>
+    #toggle {
+        width: 100px;
+        height: 100px;
+        background: #ccc;
+    }
+</style>
+<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+    $("#slideshow > #div1:gt(0)").hide();
+
+    setInterval(function () {
+        $('#slideshow > #divSlide:first')
+        .show("slide", { direction: "left" }, 40000)
+        .next()
+        .end()
+        .appendTo('#slideshow');
+    }, 10000);
+
+</script>
+
+
+<style>
+         #slideshow > #divSlide {
+            background-color: white;
+            position:absolute;
+
+            top: 0 ;
+            width:96%;
+     
+        }
+
+        #slideshow .titulo {
+            width: 90%;
+            height: 40px;
+            padding: 0px 20px 20px 20px;
+        }
+</style>
+
+
+
+    <div class="panel-body">
+
+        <div id="slideshow" >
+            <div id="divSlide" >
+                <div class="row">
+                    <div class="col-md-12 .col-md-push-12">
+                        <div id="flot-line-chart-multi" class="titulo">
+                            <h1>CONTROL CONTAMINACIÓN - BLANCO BF-42</h1>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.BLKBF42CUT_CMCC
+                        </div>
+                    </div>
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.BLKBF42CUS_CMCC
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.BLKBF42CUT_PCT
+                        </div>
+                    </div>
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.BLKBF42CUS_PCT
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="divSlide" class="row" >
+                <div class="row">
+                    <div class="col-md-12 .col-md-push-12">
+                        <div id="flot-line-chart-multi" class="titulo">
+                            <h1>CONTROL CONTAMINACIÓN - BLANCO BG4</h1>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.BLKBG4CUT_CMCC
+                        </div>
+                    </div>
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.BLKBG4CUS_CMCC
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.BLKBG4CUT_PCT
+                        </div>
+                    </div>
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.BLKBG4CUS_PCT
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="divSlide">
+                <div class="row">
+                    <div class="col-md-12 .col-md-push-12">
+                        <div id="flot-line-chart-multi" class="titulo">
+                            <h1>EXACTITUD - ESTÁNDAR ST43</h1>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.ST43CUT_CMCC
+                        </div>
+                    </div>
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.ST43CUS_CMCC
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.ST43CUT_PTXT
+                        </div>
+                    </div>
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.ST43CUS_PTXT
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="divSlide">
+                <div class="row">
+                    <div class="col-md-12 .col-md-push-12">
+                        <div id="flot-line-chart-multi" class="titulo">
+                            <h1>EXACTITUD - ESTÁNDAR ST45</h1>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.ST45CUT_CMCC
+                        </div>
+                    </div>
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.ST45CUS_CMCC
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.ST45CUT_PTXT
+                        </div>
+                    </div>
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.ST45CUS_PTXT
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="divSlide">
+                <div class="row">
+                    <div class="col-md-12 .col-md-push-12">
+                        <div id="flot-line-chart-multi" class="titulo">
+                            <h1>EXACTITUD - ESTÁNDAR ST46</h1>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.ST46CUT_CMCC
+                        </div>
+                    </div>
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.ST46CUS_CMCC
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.ST46CUT_PTXT
+                        </div>
+                    </div>
+                    <div class="col-md-6 .col-md-push-6">
+                        <div style="width:100%; height:500px;">
+                            @ViewBag.ST46CUS_PTXT
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="divSlide" >
+                <div class="row">
+                    <div class="col-md-12 .col-md-push-12">
+                        <div id="flot-line-chart-multi" class="titulo">
+                            <h1>RESUMEN GENERAL QAQC</h1>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-6 .col-md-push-6">
+                        <div id="flot-line-chart-multi">
+                            @(Model)
+                            @ViewBag.Grafico1
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="flot-line-chart-multi">
+                            @ViewBag.Grafico2
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <br />
+                <hr />
+                <br />
+                <div class="row">
+                    <div class="center-block" style="width:80%; height:500px;">
+
+                        @ViewBag.Grafico3
+
+
+
+                    </div>
+
+                </div>
+            </div>
+
+     
+    </div>
+</div>

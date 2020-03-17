@@ -1,0 +1,235 @@
+﻿@{
+    Layout = null;
+}
+
+<style>
+    * {
+        font-family: Verdana;
+    }
+
+    div {
+        text-align: justify;
+    }
+
+    .cabecera {
+        width: 1010px;
+        height: 200px;
+    }
+
+        .cabecera .subtitle {
+            width: 300px;
+            height: 40px;
+            float: left;
+        }
+
+        .cabecera .logo {
+            width: 700px;
+            height: 70px;
+            text-align: right;
+            float: left;
+        }
+
+        .cabecera .title {
+            text-align: center;
+            vertical-align: top;
+            width: 1000px;
+            float: left;
+        }
+
+        .cabecera .logo img {
+            width: 350px;
+            height: 70px;
+        }
+
+    .cuerpo {
+        width: 100px;
+    }
+</style>
+
+
+
+<div class="invoice">
+    <header class="clearfix">
+        <div class="cabecera">
+
+            <div class="subtitle"><h5> GERENCIA DE PLANIFICACIÓN</h5></div>
+            <div class="logo"><img src="~/Images/LOGO CERRO COLORADO BHP.png" /></div>
+            <div class="title">
+                <h1>RECOMENDACIÓN GEOTÉCNIA</h1>
+                <h2>RI-GEOT N° @ViewBag.RGN</h2>
+            </div>
+
+        </div>
+    </header>
+    <hr />
+    <div class="cuerpo">
+
+        <table width="998">
+            <tr>
+                <td><b>EMITIDA POR:</b></td>
+                <td colspan="2">@ViewBag.RECCONTROL</td>
+                <td><b> CARGO:</b></td>
+                <td colspan="2">
+
+                    @if (@ViewBag.RECARGO == "IG")
+                    {
+                        <div> INGENIERO GEOTÉCNICO</div>
+                    }
+                    else if (@ViewBag.RECARGO == "IGS")
+                    {
+                        <div>INGENIERO GEOTÉCNICO SÉNIOR</div>
+                    }
+                    else if (@ViewBag.RECARGO == "OG")
+                    {
+                        <div>OPERADOR GEOTÉCNICO</div>
+                    }
+                    else {
+                        <div></div>
+                    }
+
+                </td>
+                <td><b>FECHA:</b></td>
+                <td>@ViewBag.STARTDATE</td>
+
+            </tr>
+            <tr>
+                <td><b>LUGAR:</b> </td>
+                <td>@ViewBag.RECLUGAR  </td>
+                <td><b>FASE/PLANTA:</b> </td>
+                <td>@ViewBag.RECZONA </td>
+                <td><b>BANCO:</b></td>
+                <td>@ViewBag.RL </td>
+                <td><b>TURNO:</b></td>
+                <td>@ViewBag.RECTURNO</td>
+            </tr>
+        </table>
+
+
+    </div>
+    <br />
+    <b>ANTECEDENTES</b>
+
+    <div>
+        @ViewBag.RECASUNTO
+
+    </div>
+    <br />
+    <b>FIGURA 1 (PRINCIPAL)</b>
+    <div>
+
+        <img src="@ViewBag.RECPATCHFOTO" width="1000" height="350" />
+    </div>
+    <div>
+        @ViewBag.RECEVALUACION
+    </div>
+
+    <br />
+    @if (@ViewBag.RECPATCHFOTO3 == null && @ViewBag.RECPATCHFOTO2 == null)
+    {
+
+    }
+    else {
+        if (@ViewBag.RECPATCHFOTO3 == null)
+        {
+            <b>FIGURA 2</b>
+
+                <img src="@ViewBag.RECPATCHFOTO2" width="1000" height="300" />
+                <div>
+                    @ViewBag.RECEVALUACION2
+                </div>
+        }
+        else {
+            <table>
+                <tr>
+                    <td><b>FIGURA 2</b></td>
+                    <td></td>
+                    <td><b>FIGURA 3</b></td>
+
+
+                </tr>
+                <tr>
+                    <td><img src="@ViewBag.RECPATCHFOTO2" width="450" height="260" /></td>
+                    <td width="96"></td>
+                    <td><img src="@ViewBag.RECPATCHFOTO3" width="450" height="260" /></td>
+
+
+                </tr>
+
+                <tr>
+                    <td>@ViewBag.RECEVALUACION2</td>
+                    <td></td>
+                    <td>@ViewBag.RECEVALUACION3</td>
+
+                </tr>
+
+            </table>
+
+        }
+    }
+    <br />
+
+    <div>
+        <b>RECOMENDACIÓN / ACCIÓN</b>
+        <div>
+            @if (@ViewBag.RECPATCHACCIONES1 != null)
+            {
+                <img src="@ViewBag.RECPATCHACCIONES1" width="1000" height="350" />
+            }
+           <div>@ViewBag.RECRECOMENDACION</div>
+            
+        </div>
+    </div>
+    <br />
+
+    <table width="998" style="table-layout:fixed;">
+        <tr>
+            <td width="150"><B>CONTROL</B></td>
+            <td width="340">@ViewBag.RECCONTROL</td>
+            <td width="150"><b>CARGO</b></td>
+            <td>@ViewBag.RECCARGOCONTROL</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>@ViewBag.RECCONTROL2</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><b>EJECUCION</b></td>
+            <td>  @ViewBag.RECEJECUCION</td>
+            <td><b>CARGO</b></td>
+            <td>@ViewBag.RECEJECUCIONCARGO</td>
+        </tr>
+        <tr>
+            <td colspan="4"><b>FECHA PROGRAMADA PARA CIERRE DE RECOMENDACIÓN:</b> @ViewBag.RECFECHAPROGCIERRE </td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="2"><br /><br /><br /><hr style="margin-left:10px; margin-right:10px;" /><br /><center><b>FIRMA RESPONSABLE</b></center></td>
+            <td colspan="2"><br /><br /><br /><hr style="margin-left:10px; margin-right:10px;" /><br /><center><b>FIRMA CONTROLADOR</b></center></td>
+        </tr>
+    </table>
+    <br />
+    @if (@ViewBag.RECPATCHFOTOCIERRE != null)
+    {
+        <img src="@ViewBag.RECPATCHFOTOCIERRE" width="1000" height="350" />
+
+    }
+
+
+
+
+</div>
+
+
+
+
+<script>
+    window.print();
+</script>

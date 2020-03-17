@@ -1,0 +1,88 @@
+﻿
+<section class="panel">
+    <header class="panel-heading">
+        <div class="panel-actions">
+            <a href="#" class="fa fa-caret-down"></a>
+            <a href="#" class="fa fa-times"></a>
+        </div>
+
+        <h2 class="panel-title">GRÁFICOS HIDROGEOLOGÍA</h2>
+    </header>
+    <div class="panel-body">
+
+        <div class="row">
+            <div class="col-md-6">
+                <section class="panel">
+                    <header class="panel-heading">
+                        <div class="panel-actions">
+                            <a href="#" class="fa fa-caret-down"></a>
+                            <a href="#" class="fa fa-times"></a>
+                        </div>
+
+                        <h2 class="panel-title">BÚSQUEDA DE REPORTE</h2>
+                    </header>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table mb-none">
+                                <thead>
+                                    <tr>
+                                        <th>Seleccione un N°: </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+
+                                    @using( Html.BeginForm("RIGEOT", "Geotecnia", FormMethod.Post,new { enctype = "multipart/form-data" }))
+                                    {
+                                        
+
+                                        <tr>
+                                            <td>
+                                                
+                                                @Html.TextBox("ID",null, new { @class = "form-control"})
+                                                Ejemplo: 337
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td align="right"><input type="submit" value="Buscar" class="btn btn-primary " /></td>
+
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+    <div id="Grafico">
+
+
+    </div>
+
+
+</section>

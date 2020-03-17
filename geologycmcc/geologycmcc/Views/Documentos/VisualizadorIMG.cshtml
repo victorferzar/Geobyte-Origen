@@ -1,0 +1,65 @@
+﻿@{ Layout = null; }
+<script src="~/Scripts/okzoom.js"></script>
+<script src="~/Scripts/okzoom.min.js"></script>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .img-magnifier-container {
+        position: relative;
+    }
+
+    .img-magnifier-glass {
+        position: absolute;
+        border: 3px solid #000;
+        border-radius: 50%;
+        cursor: none;
+        /*Set the size of the magnifier glass:*/
+        width: 100px;
+        height: 100px;
+    }
+</style>
+
+
+<div class="col-md-12 ">
+
+    <section class="panel">
+        <header class="panel-heading">
+            <div class="panel-actions">
+                <a href="#" class="fa fa-caret-down"></a>
+                <a href="#" class="fa fa-times"></a>
+            </div>
+
+            <h2 class="panel-title">DOCUMENTO DIGITALIZADO</h2>
+        </header>
+        <div class="panel-body">
+            <div class="row">
+                <img src='@Url.Action("verPDF", "Documentos", new { dataHoleid = ViewBag.dataHoleid, dataFrom = ViewBag.dataFrom })' style="height: 100%; width: 100%; object-fit: contain" id="zoom" />
+            </div>
+            <br />
+            <input type="checkbox" id="magnifierToggle"> Habilitar / Deshabilitar Lupa
+        </div>
+    </section>
+</div>
+
+<script>
+
+
+    $(function () {
+
+
+        $('#magnifierToggle').change(function (evt) {
+            console.log($(this).is(':checked'));
+            if ($(this).is(':checked')) {
+                $('#zoom').okzoom({
+                    width: 400,
+                    height: 400
+                });
+            } else {
+                $('#zoom').replaceWith($('#zoom').clone());
+            }
+        });
+       
+    });
+</script>

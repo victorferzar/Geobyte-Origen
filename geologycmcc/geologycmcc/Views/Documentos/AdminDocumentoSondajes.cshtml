@@ -1,0 +1,71 @@
+﻿@using Mvc.CascadeDropDown
+@model  geologycmcc.Models.DocumentosModels.DocumentsDrillHole
+<script src="~/Scripts/jquery-3.4.0.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<div class="row">
+    <div class="col-md-6">
+        <section class="panel">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                    <a href="#" class="fa fa-caret-down"></a>
+                    <a href="#" class="fa fa-times"></a>
+                </div>
+
+                <h2 class="panel-title">BÚSQUEDA DE SONDAJE DIGITALIZADO</h2>
+            </header>
+            <div class="panel-body">
+                <div class="row">
+             
+
+                    @using (Ajax.BeginForm("AdminDocumentoSondajesAdd", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "listado", InsertionMode = InsertionMode.Replace, LoadingElementId = "loading", OnFailure = "failedSearch" }))
+                    {
+
+
+
+                        <div class="panel-body">
+
+                            <label class="col-md-12 control-label" for="inputSuccess">AÑO FISCAL</label>
+                            @Html.DropDownListFor(m => m.FISCAL_YEAR, (IEnumerable<SelectListItem>)ViewBag.Fiscal_Year, new { @class = "form-control input-lg mb-md", @required = "required" })
+                            <label class="col-md-12 control-label" for="inputSuccess">CAMPAÑA</label>
+                            @Html.CascadingDropDownListFor(expression: m => m.PROJECTCODE, triggeredByProperty: m => m.FISCAL_YEAR, url: Url.Action("GetProjecto", "Documentos"), ajaxActionParamName: "id", optionLabel: "Seleccione Proyecto", htmlAttributes: new { @class = "form-control input-lg mb-md", @required = "required" })
+
+                            <label class="col-md-12 control-label" for="inputSuccess">SONDAJE</label>
+                            @Html.CascadingDropDownListFor(expression: m => m.HOLEID, triggeredByProperty: m => m.PROJECTCODE, url: Url.Action("GetSondaje", "Documentos"), ajaxActionParamName: "projectid", optionLabel: "Seleccione Sondaje", htmlAttributes: new { @class = "form-control input-lg mb-md", @required = "required" })
+
+                            <div class="col-md-12">
+
+                                <input type="submit" value="Buscar" id="BotonBuscar" class="btn btn-primary col-md-4" />
+
+
+                            </div>
+
+
+                        </div>
+
+                    }
+
+
+
+                </div>
+            </div>
+        </section>
+        <div id="listado" style="padding-left: 0 !important; padding-right: 0 !important;  margin-left: 0 !important; margin-right: 0 !important; "> </div>
+    </div>
+
+
+    <div class="col-md-6">
+
+        <div id="righthandsidebox" style="padding-left: 0 !important; padding-right: 0 !important;  margin-left: 0 !important;  margin-right: 0 !important;"> </div>
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,121 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_ViewFinal.cshtml";
+
+}
+<head>
+    <meta http-equiv="refresh" content="1200">
+</head>
+<style>
+    html, body, #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 1000px;
+        width: 100%;
+    }
+
+</style>
+<link rel="stylesheet" href="https://js.arcgis.com/4.12/esri/css/main.css">
+<script src="https://js.arcgis.com/4.12/"></script>
+<link href="~/Content/Loader.css" rel="stylesheet" />
+<script>
+
+  
+
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/Graphic",
+      "esri/geometry/Point",
+
+      "esri/geometry/Polyline",
+      "esri/symbols/SimpleLineSymbol",
+
+      "esri/geometry/Polygon",
+      "esri/symbols/SimpleFillSymbol",
+      "esri/symbols/TextSymbol",
+      "esri/symbols/PictureMarkerSymbol"
+    ], function (Map, MapView,
+          Graphic, Point,
+          Polyline, SimpleLineSymbol,
+          Polygon, SimpleFillSymbol, TextSymbol, PictureMarkerSymbol
+    ) {
+
+        var map = new Map({
+            basemap: "hybrid",
+        });
+
+        var view = new MapView({
+            container: "viewDiv",
+            map: map,
+            center: [-69.2617116, -20.0479239],
+            zoom: 16
+        });
+
+
+
+        var Symbol = {
+            type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
+            url: "http://cmc01663:92/Images/100px.png" ,
+            width: "60px",
+            height: "60px",
+         
+        };
+
+        @{
+            for(int f =0; f < ViewBag.fil; f++) {
+
+
+                for (int c =0; c < 5;c++){
+
+                    if (c == 2)
+                    {
+
+                        String dato =String.Concat(@ViewBag.Maquinas[f, c].ToString()+ "{ color:\"white\",haloColor:\"black\",haloSize:\"3px\",text:\""+ @ViewBag.Maquinas[f, 5]+ "\",xoffset:0,yoffset:30,font:{  size:16,family:\"sans-serif\",weight:\"bolder\"} }); ");
+
+                        @Html.Raw(HttpUtility.HtmlDecode(dato));
+        }
+                    else {
+                                @ViewBag.Maquinas[f, c];
+                            }
+                        }
+                    }
+
+                }
+
+
+
+
+
+    });</script>
+
+<section class="panel">
+    <header class="panel-heading">
+        <div class="panel-actions">
+            <a href="#" class="fa fa-caret-down"></a>
+            <a href="#" class="fa fa-times"></a>
+        </div>
+
+        <h2 class="panel-title">UBICACIÓN DE EQUIPOS DE PERFORACIÓN</h2>
+    </header>
+    <div id="wrapper" class="panel-body">
+        @Html.Partial("_PartialViewLoader")
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="viewDiv"></div>                
+             </div>
+         
+        </div>
+
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        setTimeout(location.reload.bind(location), 90000);
+        $('#LeftBar').trigger('click');
+        $(document).scrollTop(700);
+    });
+</script>

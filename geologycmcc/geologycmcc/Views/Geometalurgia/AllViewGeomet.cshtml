@@ -1,0 +1,138 @@
+﻿@using geologycmcc.Models.GeologiaQAQCModels;
+<head>
+    <meta http-equiv="refresh" content="1000000">
+</head>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryui")
+@Scripts.Render("~/plugins/dataPicker")
+@Styles.Render("~/plugins/dataPickerStyles")
+
+@model DotNet.Highcharts.Highcharts
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<style>
+    #toggle {
+        width: 100px;
+        height: 100px;
+        background: #ccc;
+    }
+</style>
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+    $("#slideshow > #div1:gt(0)").hide();
+
+    setInterval(function () {
+        $('#slideshow > #divSlide:first')
+        .show("slide", { direction: "left" }, 40000)
+        .next()
+        .end()
+        .appendTo('#slideshow');
+    }, 40000);
+
+</script>
+
+
+<style>
+    #slideshow > #divSlide {
+        background-color: white;
+        position: absolute;
+        top: 100px;      
+        width: 96%;
+    }
+
+    #slideshow .titulo {
+        width: 90%;
+        height: 40px;
+        padding: 0px 20px 20px 20px;
+    }
+</style>
+
+
+<section class="panel">
+    <header class="panel-heading">
+        <div class="panel-actions">
+            <a href="#" class="fa fa-caret-down"></a>
+            <a href="#" class="fa fa-times"></a>
+        </div>
+
+        <h2 class="panel-title">GRÁFICOS </h2>
+    </header>
+    <div class="panel-body">
+
+        <div id="slideshow">
+            <div id="divSlide">
+                <div class="row">
+                    
+                    <div class="wrapper">
+                   
+                        <div class="drilling" >
+                            <div class="col-sm-12">
+                                <hr />
+                                <hr />
+                                <div class="mb-md">
+                                    <hr /> 
+                                    @ViewBag.GResumenPerforaciónFY
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="col-sm-12">
+
+                                @*<div class="mb-md">
+                                    @ViewBag.GBacklog
+                                </div>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="divSlide" class="row">
+                <div class="row">
+                
+                    <div class="wrapper">
+                  
+                        <iframe id="idIframe" onload="iframeLoaded()" src="http://bhpma002473:8080/Reports/powerbi/Geomet/Pilas%20Power%20BI?rs:embed=true" frameborder="0" allowFullScreen="true"></iframe>
+                    </div>
+                </div>
+                </div>
+            <div id="divSlide" class="row">
+                <div class="row">
+               
+                    <div class="wrapper">
+
+                        <iframe id="idIframe" onload="iframeLoaded()" src="http://bhpma002473:8080/Reports/powerbi/Geomet/Pilas%20Power%20BI%20-%20Solo%20tiempos?rs:embed=true" frameborder="0" allowFullScreen="true"></iframe>
+                    </div>
+                </div>
+            </div>
+           
+
+                </div>
+            </div>
+
+
+ 
+</section>
+<style>
+    .wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        padding-top: 100px;
+    }
+
+        .wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+            .wrapper .drilling {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            height: 80%;
+        }
+</style>

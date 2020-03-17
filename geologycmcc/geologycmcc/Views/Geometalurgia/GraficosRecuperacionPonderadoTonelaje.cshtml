@@ -1,0 +1,319 @@
+﻿@{
+    Layout = null;
+}
+<style>
+   .hover {
+	color:#000000;
+    font-weight:500;
+    background-color:#d1d1d1;
+}
+</style>
+
+<div class="panel-body">
+    <div class="row">
+
+        @if (ViewBag.detalle != null)
+        {
+
+            <div class="col-lg-12">
+
+
+                <header class="panel-heading">
+                    <div class="panel-actions">
+                        <a href="#" class="fa fa-caret-down"></a>
+                        <a href="#" class="fa fa-times"></a>
+                    </div>
+
+                    <h2 class="panel-title">RESUMEN DE @ViewBag.HOLEID</h2>
+                </header>
+
+
+
+                <div class="table-responsive">
+
+                    <table class="table table-bordered mb-none">
+                        <thead>
+                            <tr>
+                                <th>TMS TOTAL </th>
+                                <th>FECHA INICIO </th>
+                                <th>FECHA FIN</th>
+                                <th>CuT (%) </th>
+                                <th>CuS (%)</th>
+                                <th>CuFT (Ton) </th>
+                                <th>CufS (Ton)</th>
+                                <th>RS</th>                                
+                                <th>CuFT Ripios (Ton)</th>
+                                <th>% Rec</th>
+                                @foreach (var detMin in ViewBag.Tmin)
+                                {
+                                    if (@detMin.OXIDO > 0)
+                                    {
+                                        <th>OXIDO</th>
+                                    }
+                                }
+                                @foreach (var detMin in ViewBag.Tmin)
+                                {
+                                    if (@detMin.SULFURO > 0)
+                                    {
+                                        <th>SULFURO</th>
+                                    }
+                                }
+                                @foreach (var detMin in ViewBag.Tmin)
+                                {
+                                    if (@detMin.MSH > 0)
+                                    {
+                                        <th>MSH</th>
+                                    }
+                                }
+                                @foreach (var detMin in ViewBag.Tmin)
+                                {
+                                    if (@detMin.MSHB > 0)
+                                    {
+                                        <th>MSHB</th>
+                                    }
+                                }
+                                @foreach (var detMin in ViewBag.Tmin)
+                                {
+                                    if (@detMin.MSHM > 0)
+                                    {
+                                        <th>MSHM</th>
+                                    }
+                                }
+                             
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var detRes in ViewBag.detalleResumen)
+                            {
+                                <tr >
+                                    <td>@detRes.TMS</td>
+                                    <td>@detRes.INICIOCARGA.ToString("dd/MM/yyyy")</td>
+                                    <td>@detRes.TERMINOCARGA.ToString("dd/MM/yyyy")</td>
+                                    <td>@detRes.CuT_PCT</td>
+                                    <td>@detRes.CuS_PCT</td>
+                                    <td>@detRes.CUFTTON</td>
+                                    <td>@detRes.CUFSTON</td>
+                                    <td>@detRes.RS</td>                                    
+                                    <td>@Math.Round(ViewBag.CuTFinoOUT / 100)</td>
+                                    <td>@Decimal.Round((decimal)@ViewBag.CutRecuperado_PILA, 2)</td>
+                                    @foreach (var detMin in ViewBag.Tmin)
+                                    {
+                                        if (@detMin.OXIDO > 0 )
+                                        {
+                                        <td>@Math.Round((@detMin.OXIDO / @detMin.TONDIA) * 100)</td>
+                                        }
+                                    }
+                                    @foreach (var detMin in ViewBag.Tmin)
+                                    {
+                                        if (@detMin.SULFURO > 0)
+                                        {
+                                            <td>@Math.Round((@detMin.SULFURO / @detMin.TONDIA) * 100)</td>
+                                        }
+                                    }
+                                    @foreach (var detMin in ViewBag.Tmin)
+                                    {
+                                        if (@detMin.MSH > 0)
+                                        {
+                                            <td>@Math.Round((@detMin.MSH / @detMin.TONDIA) * 100)</td>
+                                        }
+                                    }
+                                    @foreach (var detMin in ViewBag.Tmin)
+                                    {
+                                        if (@detMin.MSHB > 0)
+                                        {
+                                            <td>@Math.Round((@detMin.MSHB / @detMin.TONDIA) * 100)</td>
+                                        }
+                                    }
+                                    @foreach (var detMin in ViewBag.Tmin)
+                                    {
+                                        if (@detMin.MSHM > 0)
+                                        {
+                                            <td>@Math.Round((@detMin.MSHM / @detMin.TONDIA) * 100)</td>
+                                        }
+                                    }
+                                  
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <br />
+                <br />
+            </div>
+                <div class="col-sm-6">
+                    <header class="panel-heading">
+                        <div class="panel-actions">
+                            <a href="#" class="fa fa-caret-down"></a>
+                            <a href="#" class="fa fa-times"></a>
+                        </div>
+
+                        <h2 class="panel-title">DATOS DE @ViewBag.HOLEID</h2>
+                    </header>
+
+
+                    <table class="table table-hover" id="detRec">
+                        <thead>
+                            <tr class="head">
+                                <th>FECHA DE CARGA</th>
+                                <th>CuT (%) CORTADOR</th>
+                                <th>CuS (%) CORTADOR</th>
+                                <th>RS CORTADOR </th>
+                                <th>CuT (%) RIPIOS</th>
+                                <th>TMS DIA</th>
+                                <th>% Rec</th>
+                                @foreach (var detMin in ViewBag.Tmin)
+                                {
+                                    if (@detMin.OXIDO > 0)
+                                    {
+                                        <th>% OXIDO</th>
+                                    }
+                                }
+                                @foreach (var detMin in ViewBag.Tmin)
+                                {
+                                    if (@detMin.SULFURO > 0)
+                                    {
+                                        <th>% SULFURO</th>
+                                    }
+                                }
+                                @foreach (var detMin in ViewBag.Tmin)
+                                {
+                                    if (@detMin.MSH > 0)
+                                    {
+                                        <th>% MSH</th>
+                                    }
+                                }
+                                @foreach (var detMin in ViewBag.Tmin)
+                                {
+                                    if (@detMin.MSHB > 0)
+                                    {
+                                        <th>% MSHB</th>
+                                    }
+                                }
+                                @foreach (var detMin in ViewBag.Tmin)
+                                {
+                                    if (@detMin.MSHM > 0)
+                                    {
+                                        <th>% MSHM</th>
+                                    }
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{var i = 0;}
+                            @foreach (var det in ViewBag.detalle)
+                            {
+
+
+                                <tr id="@i">
+                                    <td>@det.FECHACARGA.ToString("dd/MM/yyyy")</td>
+                                    <td>@det.CuT_CORTADOR</td>
+                                    <td>@det.CuS_CORTADOR</td>
+                                    <td>@Decimal.Round((decimal)@det.CuS_CORTADOR / (decimal)@det.CuT_CORTADOR, 2)</td>
+                                    <td>@{var resultado2 = det.CuT_RIPIOS == 0 ? "" : det.CuT_RIPIOS;}@resultado2</td>
+                                    <td>@det.TONELAJEDIARIO</td>
+                                    <td>@{var resultado1 = det.Rec_CuT_Fecha_Carga == 0 ? "" : det.Rec_CuT_Fecha_Carga;}@resultado1</td>
+                                    @foreach (var detMin in ViewBag.Tmin)
+                                    {
+
+                                        if (@detMin.OXIDO > 0 )
+                                        {
+                                            <td>@{var resultado = @det.OXIDO == null ? 0 : Math.Round((@det.OXIDO / @det.TONDIA) * 100);}@resultado</td>
+                                        }
+                                    }
+                                    @foreach (var detMin in ViewBag.Tmin)
+                                    {
+                                        if (@detMin.SULFURO > 0 )
+                                        {
+                                            <td>@{var resultado = @det.SULFURO == null ? 0 : Math.Round((@det.SULFURO / @det.TONDIA) * 100);}@resultado</td>
+                                        }
+                                    }
+                                    @foreach (var detMin in ViewBag.Tmin)
+                                    {
+                                        if (@detMin.MSH > 0 )
+                                        {
+                                            <td>@{var resultado = @det.MSH == null ? 0 : Math.Round((@det.MSH / @det.TONDIA) * 100);}@resultado</td>
+                                        }
+                                    }
+                                    @foreach (var detMin in ViewBag.Tmin)
+                                    {
+                                        if (@detMin.MSHB > 0 )
+                                        {
+                                            <td>>@{var resultado = @det.MSHB == null ? 0 : Math.Round((@det.MSHB / @det.TONDIA) * 100);}@resultado</td>
+                                        }
+                                    }
+                                    @foreach (var detMin in ViewBag.Tmin)
+                                    {
+                                        if (@detMin.MSHM > 0 )
+                                        {
+                                            <td>>@{var resultado = @det.MSHM == null ? 0 : Math.Round((@det.MSHM / @det.TONDIA) * 100);}@resultado</td>
+                                        }
+                                    }
+                                </tr>
+                                 i++;
+                            }
+                        </tbody>
+                    </table>
+
+
+                    <input type="button" id="Exportar" value="Exportar" class="btn btn-primary " />
+                </div>
+
+                <div class="col-sm-6">
+
+
+                    <header class="panel-heading">
+                        <div class="panel-actions">
+                            <a href="#" class="fa fa-caret-down"></a>
+                            <a href="#" class="fa fa-times"></a>
+                        </div>
+
+                        <h2 class="panel-title">GRÁFICO DE RECUPERACIÓN CUT PONDERADO DIARIO</h2>
+                    </header>
+
+                    @ViewBag.Graf1RecTotPila
+             
+                </div>
+
+        }
+        else
+        {
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="alert alert-warning">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <strong>NO EXISTE O FALTAN DATOS DE LA PILA</strong>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+
+
+    </div>
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+ 
+
+            $("#Exportar").click(function () {
+                $("detRec").tableExport();
+                $("#detRec").table2excel({
+                    // exclude CSS class
+                    name: "@ViewBag.HOLEID",
+                    filename: "DetRec_@ViewBag.HOLEID" //do not include extension
+                   
+                });
+            });
+           
+
+          });
+
+       
+      
+</script>
+

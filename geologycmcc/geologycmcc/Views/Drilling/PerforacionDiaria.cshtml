@@ -1,0 +1,203 @@
+﻿@{
+    Layout = "~/Views/Shared/_ViewFinal.cshtml";
+
+}
+<link href="~/Content/Loader.css" rel="stylesheet" />
+<script>
+    $(document).ready(function () {
+        setTimeout(location.reload.bind(location), 90000);
+        $('#LeftBar').trigger('click');
+        $(function () {
+            $('#ideal_form').submit(function (e) {
+                e.preventDefault();
+                var form = $(this);
+                var post_url = form.attr('action');
+                var post_data = form.serialize();
+                $.ajax({
+                    type: 'POST',
+                    url: post_url,
+                    data: post_data,
+                    success: function (msg) {
+                        $(form).fadeOut(8, function () {
+                            form.html(msg).fadeIn().delay(20);
+
+                        });
+                    }
+                });
+            });
+        });
+    });
+
+</script>
+<style>
+    center {
+        margin-top: 15px;
+    }
+</style>
+<section class="panel">
+    @Html.Partial("_PartialViewLoader")
+
+
+
+    <header class="panel-heading">
+        <div class="panel-actions">
+            <a href="#" class="fa fa-caret-down"></a>
+            <a href="#" class="fa fa-times"></a>
+        </div>
+
+        <h2 class="panel-title">ESTADO DE PERFORACIÓN AL @DateTime.Now.ToShortDateString()</h2>
+    </header>
+    <div class="panel-body" id="ideal_form">
+
+        <div class="row">
+            @if (ViewBag.Perforacionxdia.Count > 0)
+            {
+                <div class="col-md-12">
+                    <section class="panel">
+
+                        <div class="panel-body">
+                            <span class="table-responsive">
+                                <table class="table table-striped mb-none">
+                                    <thead>
+                                        <tr style="font-size:18px;">
+                                            <th><center>FECHA <br />DE REPORT</center></th>
+                                    
+                                            <th><center>FASE</center></th>
+                                            <th><center>EQUIPO</center></th>
+                                            <th><center>SONDAJE</center></th>
+                          
+                                            <th><center>AZIMUTH / DIP <br /> PROPUESTOS </center></th>
+                                            <th><center>MTS. <br /> PROPUESTOS</center></th>
+                                            <th><center>MTS. <br /> PERFORADOS</center></th>
+                                            <th><center>COORDENADA <br /> FINAL</center></th>
+                                            <th>SURVEY </th>
+                                            <th>SURVEY DRILLING</th>
+                                            <th>SURVEY GEOLOGY</th>
+                                            <th>MTS EN MUESTRERA</th>
+                                        </tr>
+
+
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var detPerfo in ViewBag.Perforacionxdia)
+                                        {
+                                            <tr>
+                                                <td><center><strong>@detPerfo.FIN_POZO</strong> </center></td>
+                                 
+                                                <td><center><span class="label label-dark" style="font-size:18px;">@detPerfo.PROSPECT</span></center></td>
+                                                <td><center>@if (detPerfo.Maquina_Perf == "BLY-015" || detPerfo.Maquina_Perf == "BLY-064" || detPerfo.Maquina_Perf == "BLY-160")
+                                                {
+                                                 if (detPerfo.Maquina_Perf == "BLY-015")
+                                                    {<span class="label label-primary" style="font-size:18px;">KW-1600-15</span> }
+                                                else if (detPerfo.Maquina_Perf == "BLY-064") {<span class="label label-primary" style="font-size:18px;">LF-230</span> }
+                                                else{<span class="label label-primary" style="font-size:18px;">LF-160-104</span> }
+                                                }
+                                                else
+                                                {
+                                                    if (detPerfo.Maquina_Perf == "BLY-031")
+                                                    { <span class="label label-danger" style="font-size:18px;">KWL-700-31</span> }
+                                                    else {<span class="label label-danger" style="font-size:18px;">SCH-001</span> }
+                                                }</center></td>
+                                                <td>
+                                                    <center>
+                                                        <span class="label label-primary" style="font-size:18px; width:600px;">
+
+                                                            [@detPerfo.PROJECTCODE]
+                                                             @detPerfo.HOLEID
+                                                            (@detPerfo.HOLEID_PROP)
+                                                        </span>
+                                                    </center>
+                                                </td>
+
+                                   
+                                                <td>
+                                                    <center>
+                                                        <span class="label label-primary" style="font-size:18px;">
+                                                            @detPerfo.AZIMUTH_PROP /
+
+                                                        @detPerfo.DIP_PROP
+                                                    </span>
+                                                </center>
+                                            </td>
+
+                                            
+                                            <td>
+                                                <center>
+                                                    <span class="label label-primary" style="font-size:18px;">
+                                                        @detPerfo.PROF_PROPUESTA
+
+                                                    mts.
+                                                </span>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            @{double? avance = @detPerfo.DEPTH * 100 / @detPerfo.PROF_PROPUESTA; }
+
+                                            <div class="progress progress-striped active m-md" style="width:200px;">
+
+                                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                                     aria-valuemax="60" style="width: @avance%; font-weight: bold; font-size:18px;">
+                                                    @detPerfo.DEPTH mts.
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            @if (@detPerfo.FECHA_COLLAR != null)
+                                        {<center><span class="label label-success">CARGADO (@detPerfo.FECHA_COLLAR)</span></center>}
+                                        else {   <center><span class="label label-danger">NO REPORTADO</span></center> }
+                                    </td>
+                                    <td>
+                                        @if (@detPerfo.Survey == 1 || @detPerfo.Survey == 4)
+                                    { <center><span class="label label-success">CARGADO BD</span></center>}
+                                    else {<center><span class="label label-danger">NO REPORTADO</span></center> }
+                                </td>
+                                <td>
+                                    @if (@detPerfo.Survey != 1 && @detPerfo.Survey != 4)
+                                {
+                                    <b></b>
+                                }
+                                else if (@detPerfo.Survey == 1 && @detPerfo.SURVEY_DRILLING == null)
+                                {<center><span class="label label-warning">QAQC PENDIENTE</span></center>}
+                                else if ((@detPerfo.Survey == 1 || @detPerfo.Survey == 4) && @detPerfo.SURVEY_DRILLING.ToString().Equals("ACEPTADO"))
+                                {<center><span class="label label-success">QAQC APROBADO</span></center> }
+                                else {<center><span class="label label-danger">QAQC RECHAZADO</span></center>}
+                            </td>
+                            <td>
+                                @if (@detPerfo.SURVEY_DRILLING != null && @detPerfo.SURVEY_GEO == null)
+                            {
+                                <center><span class="label label-warning">QAQC PENDIENTE</span></center>
+                            }
+                            else if (@detPerfo.SURVEY_DRILLING != null && @detPerfo.SURVEY_GEO.ToString().Equals("ACEPTADO"))
+                            {
+                                <center><span class="label label-success">QAQC APROBADO</span></center>
+                            }
+                            else if (@detPerfo.SURVEY_DRILLING != null && @detPerfo.SURVEY_GEO.ToString().Equals("RECHAZADO"))
+                            {
+                                <center><span class="label label-danger">QAQC RECHAZADO</span></center>
+                            }
+                        </td>
+                        <td>
+                            @if (@detPerfo.ENTREGADO != null)
+                        {
+                            <div class="progress progress-striped active m-md" style="width:200px;">
+
+                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                     aria-valuemax="60" style="width: @avance%; font-weight: bold; font-size:18px;">
+                                    @detPerfo.ENTREGADO mts.
+                                </div>
+                            </div>}
+                    </td>
+                </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                </span>
+                            </div>
+                   
+                    </section>
+                </div>
+                                                }
+        </div>
+    </div>
+
+    </section>

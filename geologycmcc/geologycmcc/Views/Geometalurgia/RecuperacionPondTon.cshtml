@@ -1,0 +1,112 @@
+﻿@{
+    Layout = "~/Views/Shared/_ViewFinal.cshtml";
+
+}
+
+<script src="~/Scripts/Highcharts-4.0.1/js/highcharts.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+<link href="~/Content/Loader.css" rel="stylesheet" />
+
+<section class="panel">
+    @Html.Partial("_PartialViewLoader")
+
+
+
+    <header class="panel-heading">
+        <div class="panel-actions">
+            <a href="#" class="fa fa-caret-down"></a>
+            <a href="#" class="fa fa-times"></a>
+        </div>
+
+        <h2 class="panel-title">RECUPERACIÓN PONDERADO POR TONELAJE</h2>
+    </header>
+    <div class="panel-body" >
+
+        <div class="row"  >
+
+   
+            <div class="col-md-6">
+            </div>
+
+                <div class="col-md-6">
+                    <br />
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <div class="panel-actions">
+                                <a href="#" class="fa fa-caret-down"></a>
+                                <a href="#" class="fa fa-times"></a>
+                            </div>
+
+                            <h2 class="panel-title">BÚSQUEDA DE PILA + CARGA</h2>
+                        </header>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                              
+                             
+
+                                        @using (Ajax.BeginForm("GraficosRecuperacionPonderadoTonelaje", new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "Grafico", InsertionMode = InsertionMode.Replace, LoadingElementId = "loading", OnFailure = "failedSearch" }))
+                                        {
+
+                                         
+                                                    <style>
+                                                        input[type=text] {
+                                                            text-transform: uppercase;
+                                                        }
+                                                    </style>
+                                                    @Html.TextBox("HOLEID", null, new { @class = "form-control input-lg mb-md", placeholder = "Ej: P01344", required = "required", @maxlength = "7" })
+                                                    <br />
+                                                    <div style="text-align:right">a
+                                                        <input type="submit" value="Buscar" class="btn btn-primary " />
+                                                    </div>
+
+                                        }
+
+
+                               
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+       </div>
+
+
+
+
+
+
+    <div id="Grafico">
+
+
+    </div>
+
+
+
+
+    <!-- Datos para ejecutar con loader -->
+
+      <script type="text/javascript">
+          $(document).ready(function () {
+              $("#loading").hide();
+            BindSpinner();
+          });
+
+        function BindSpinner() {
+            $("loading").bind("ajaxSend", function () {
+                $(this).show();
+            }).bind("ajaxStop", function () {
+                $(this).hide();
+            }).bind("ajaxError", function () {
+                $(this).hide();
+            });
+        };
+    </script>
+
+
+
+
+</section>
+
+

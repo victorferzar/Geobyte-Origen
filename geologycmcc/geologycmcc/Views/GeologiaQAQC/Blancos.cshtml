@@ -1,0 +1,212 @@
+﻿@using geologycmcc.Models.GeologiaQAQCModels;
+
+
+@{
+    Layout = null;
+}
+
+<section class="panel">
+    <header class="panel-heading">
+        <div class="panel-actions">
+            <a href="#" class="fa fa-caret-down"></a>
+            <a href="#" class="fa fa-times"></a>
+        </div>
+
+        <h2 class="panel-title">Gráfico Blanco</h2>
+    </header>
+    <div class="panel-body">
+
+        <div class="row">
+            <div class="col-md-9 .col-md-push-3">
+                <div id="flot-line-chart-multi" style="width:100%; height:500px;">
+                    @Scripts.Render("~/bundles/jquery")
+                    @Scripts.Render("~/bundles/jqueryui")
+
+
+                    @model DotNet.Highcharts.Highcharts
+                    @(Model)
+
+                </div>
+
+            </div>
+            <div class="col-md-3 .col-md-pull-9">
+                <table id="info2" class="table table-striped table-bordered table-hover ta ">
+                    <thead>
+                        <tr>
+                            <th colspan="14"> Statistics</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th># of Analyses above Threshold</th>
+                            <th>@ViewBag.Total</th>
+                        </tr>
+                        <tr>
+                            <th># Outside Warning Limit</th>
+                            <th>@ViewBag.TotalWarn</th>
+                        </tr>
+                        <tr>
+                            <th># Outside Error Limit</th>
+                            <th>@ViewBag.TotalError</th>
+                        </tr>
+                        <tr>
+                            <th># of Analyses below Threshold</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th>% Outside Error Limit</th>
+                            <th>@ViewBag.PctError</th>
+                        </tr>
+                        <tr>
+                            <th>Mean</th>
+                            <th>@ViewBag.Mean</th>
+                        </tr>
+                        <tr>
+                            <th>Median</th>
+                            <th>@ViewBag.Median</th>
+                        </tr>
+                        <tr>
+                            <th>Min</th>
+                            <th>@ViewBag.Min</th>
+                        </tr>
+                        <tr>
+                            <th>Max</th>
+                            <th>@ViewBag.Max</th>
+                        </tr>
+                        <tr>
+                            <th>Standard Deviation</th>
+                            <th>@ViewBag.DevStd</th>
+                        </tr>
+                        <tr>
+                            <th>% Rel. Std. Dev.</th>
+                            <th>@ViewBag.PctDevStd</th>
+                        </tr>
+                        <tr>
+                            <th>Standard Error</th>
+                            <th>@ViewBag.ErrorDev</th>
+                        </tr>
+                        <tr>
+                            <th>% Rel. Std. Err.</th>
+                            <th>@ViewBag.PctErrorDevStd</th>
+                        </tr>
+                        <tr>
+                            <th>Total Bias</th>
+                            <th>@ViewBag.Bias</th>
+                        </tr>
+                        <tr>
+                            <th>% Mean Bias</th>
+                            <th>@ViewBag.BiasMean</th>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>@ViewBag.Title</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="ibox-content" style="position: relative ">
+                            <div id="flot-line-chart-multi">
+                                <table id="info" class="table table-striped table-bordered table-hover dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-1">N° </th>
+                                            <th class="col-md-1">CHECKID </th>
+                                            <th class="col-md-1">STANDARDID </th>
+                                            <th class="col-md-1">DESPATCHNO </th>
+                                            <th class="col-md-1">LABJOBNO</th>
+                                            <th class="col-md-1">LAB </th>
+                                            <th class="col-md-1">NAME </th>
+                                            <th class="col-md-1">PRIORITY </th>
+                                            <th class="col-md-1">VALUE </th>
+                                            <th class="col-md-1">NORMALIZACION</th>
+                                            <th class="col-md-1">STANDARD VALUE </th>
+                                            <th class="col-md-1">MIN LIMIT</th>
+                                            <th class="col-md-1">MAX LIMIT</th>
+                                            <th class="col-md-1">SENDDATE</th>
+                                            <th class="col-md-1">RETURNDATE</th>
+                                        </tr>
+                                    </thead>
+                                    @if (ViewBag.tablaDetalle != null)
+                                        {
+                                            var i = 0;
+                                            foreach (CQAQCSTD detalle in ViewBag.tablaDetalle)
+                                            {
+                                <tr>
+                                    <td class="col-md-1"> @i</td>
+                                    <td class="col-md-1">@detalle.CHECKID</td>
+                                    <td class="col-md-1">@detalle.STANDARDID</td>
+                                    <td class="col-md-1">@detalle.DESPATCHNO</td>
+                                    <td class="col-md-1">@detalle.LABJOBNO</td>
+                                    <td class="col-md-1">@detalle.LABCODE</td>
+                                    <td class="col-md-1">@detalle.ASSAYNAME</td>
+                                    <td class="col-md-1">@detalle.ASSAY_PRIORITY</td>
+                                    <td class="col-md-1">@detalle.ASSAYVALUE</td>
+                                    <td class="col-md-1">@detalle.NORMALIZACION</td>
+                                    <td class="col-md-1">@detalle.STANDARDVALUE</td>
+                                    <td class="col-md-1">@detalle.MIN</td>
+                                    <td class="col-md-1">@detalle.MAX</td>
+                                    <td class="col-md-1">@detalle.SENDDATE</td>
+                                    <td class="col-md-1">@detalle.RETURNDATE</td>
+                                </tr>
+
+                                                i++;
+                                            }
+                                        }
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    </section>
+
+    <script>
+        $("#Grafico1_container").ready(function () {
+
+            Grafico1.update({
+                tooltip: {
+                    followPointer: false,
+                    shared: false,
+                    useHTML: true,
+                    crosshairs: true
+                },
+                plotOptions: {
+                    line: {
+                        findNearestPointBy: 'xy',
+                        marker: {
+                            enabled: true
+                        }
+                    }
+                },
+            });
+
+        });
+
+    </script>

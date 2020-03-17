@@ -1,0 +1,82 @@
+﻿@using Mvc.CascadeDropDown
+@model  geologycmcc.Models.DocumentosModels.DocumentSondPetrografia
+<script src="~/Scripts/jquery-3.4.0.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                    <a href="#" class="fa fa-caret-down"></a>
+                    <a href="#" class="fa fa-times"></a>
+                </div>
+
+                <h2 class="panel-title">BÚSQUEDA DE SONDAJE DIGITALIZADO</h2>
+            </header>
+            <div class="panel-body">
+                <div class="row">
+
+
+                    @using (Ajax.BeginForm("PetrografiaPDF", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "listado", InsertionMode = InsertionMode.Replace, LoadingElementId = "loading", OnFailure = "failedSearch" }))
+                    {
+
+
+
+                        <div class="panel-body">
+
+                            <label class="col-md-12 control-label" for="inputSuccess">MUESTRA</label>
+                            @Html.DropDownListFor(m => m.SAMPLEID, (IEnumerable<SelectListItem>)ViewBag.SampleID, new { @class = "form-control input-lg mb-md", @required = "required" })
+                            <label class="col-md-12 control-label" for="inputSuccess">SONDAJE</label>
+                            @Html.CascadingDropDownListFor(expression: m => m.HOLEID_ME, triggeredByProperty: m => m.SAMPLEID, url: Url.Action("GetSondPetro", "Documentos"), ajaxActionParamName: "id", htmlAttributes: new { @class = "form-control input-lg mb-md", @required = "required" })
+                            <label class="col-md-12 control-label" for="inputSuccess">PDF</label>
+                            <select  class="form-control input-lg mb-md" id="tipoarchivo" name="tipoarchivo">
+                                <option value="CARTILLA">DESCRIPCIÓN MACROSCÓPICA</option>
+                                <option value="MAPEO">MAPEO</option>
+                                <option value="COLLAR">COLLAR</option>
+                                <option value="MICRO">DESCRIPCIÓN MICROSCÓPICA</option>
+                            </select>
+                            
+
+                     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <div class="col-md-12">
+
+                                <input type="submit" value="Buscar" class="btn btn-primary col-md-4" />
+
+
+                            </div>
+
+
+                        </div>
+
+                    }
+
+
+
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+
+
+
+    <div id="listado" style="padding-left: 0 !important; padding-right: 0 !important;  margin-left: 0 !important; margin-right: 0 !important; "></div>
+
+</div>
+

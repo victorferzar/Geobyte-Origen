@@ -1,0 +1,123 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section class="panel">
+
+    <header class="panel-heading">
+        <div class="panel-actions">
+            <a href="#" class="fa fa-caret-down"></a>
+            <a href="#" class="fa fa-times"></a>
+        </div>
+
+        <h2 class="panel-title">Búsqueda Duplicados</h2>
+    </header>
+    <div class="panel-body">
+
+        <div class="row">
+            @using (Ajax.BeginForm("Duplicado", "GeologiaQAQC", new AjaxOptions()
+            {
+                HttpMethod = "GET",
+                UpdateTargetId = "Grafico",
+                InsertionMode = InsertionMode.Replace,
+                LoadingElementId = "loading",
+                OnFailure = "failedSearch"
+            }, new { @class = "qaqc-form" }))
+            {
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label" for="elemento">Fecha Inicio:</label>
+                    <div class="input-group date" id="sandbox-container">
+                        @Html.TextBox("FechaDesde", DateTime.Now.AddDays(-7).ToString("dd/MM/yyyy"), new { @class = "form-control", @readonly = "readonly" })
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                    <label class="control-label" for="elemento">Fecha Final:</label>
+                    <div class="input-group date" id="sandbox-container1">
+
+                        @Html.TextBox("FechaHasta", DateTime.Now.ToString("dd/MM/yyyy"), new { @class = "form-control"})
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                    <br />
+                    <label class="control-label" for="elemento">Valores Mayores A:</label>
+                    @Html.TextBox("MinAssayValue", 0.001, new { @class = "form-control", @type = "number", @min = "0", @step = "0.001" })
+
+                    <label class="control-label" for="elemento">Barra Aceptación:</label>
+                    @Html.TextBox("BarraAceptacion", 30, new { @class = "form-control", @type = "number", @min = "0", @step = "5" })
+                    <br />
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label" for="proyecto">Proyecto:</label>
+                    <select class="form-control" multiple="multiple" size="7" id="ProjectList" name="ProjectList"></select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label" for="holestatus">Status Sond:</label>
+                    <select class="form-control" multiple="multiple" size="4" id="HoleStatusList" name="HoleStatusList"></select>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="tipoperforacion">Perf:</label>
+                    <select class="form-control" multiple="multiple" size="4" id="DrillTypeList" name="DrillTypeList"></select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label" for="check">CheckStage:</label>
+                    <select class="form-control" multiple="multiple" size="4" id="CheckStageList" name="CheckStageList"></select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label" for="lab">Lab:</label>
+                    <select class="form-control input-sm" multiple="multiple" size="4" id="LabDup" name="LabDup"></select>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="suite">Suite:</label>
+                    <select class="form-control input-sm" multiple="multiple" size="4" id="SuiteListaDup" name="SuiteListaDup"></select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label" for="status">Status Ley:</label>
+                    @Html.ListBox("StatusLista", null, new { @class = "form-control", multiple = "multiple", size = "4" })
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label" for="elemento">Elementos:</label>
+                    <select class="form-control" multiple="multiple" size="8" id="ElementosLista" name="ElementosLista" required></select>
+
+                </div>
+            </div>
+
+
+            <div class="col-md-6 .col-md-offset-3">
+                <div class="form-group" style="align-content:center">
+                    <input class="btn btn-primary" type="submit" value="Filtrar" />
+                </div>
+            </div>
+
+            }
+
+        </div>
+
+    </div>
+</section>  
+
+       <script src="~/Scripts/Highcharts-4.0.1/js/highcharts.js"></script>
+ 
+<div id="Grafico"></div>
+      
+
+  

@@ -1,0 +1,75 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="panel-body">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="mb-md">
+                @ViewBag.GraficoConductivity
+                <br />
+                <input type="button" id="btnExportConduc" value="Export Conductividad XLS " class="btn btn-primary" />
+                <br />
+                <br />
+                <br />
+                @ViewBag.GraficoConcentracionCu
+                <br />
+                <input type="button" id="btnExportConCu" value="Export Concentración Cu XLS " class="btn btn-primary" />
+                <br />
+                <br />
+                <br />
+                @ViewBag.GraficoSulfato
+                <br />
+                <input type="button" id="btnExportPH" value="Export PH XLS " class="btn btn-primary" />
+                <br />
+                <br />
+                <br />
+                @ViewBag.GraficoConsSulfato
+                <br />
+                <input type="button" id="btnExportSul" value="Export Concentración Sulf XLS " class="btn btn-primary" />
+                <br />
+                <br />
+                <br />
+                @ViewBag.GraficoFreatico
+                <br />
+                <input type="button" id="btnExportNivel" value="Export Nivel Freatico XLS " class="btn btn-primary" />
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#btnExportConduc').click(function () {
+
+            window.location = "/HidroGeologia/ExportToExcel?holeid=" + "@ViewBag.Sondaje&tipo=Conductividad";
+
+        });
+        $('#btnExportConCu').click(function () {
+
+            window.location = "/HidroGeologia/ExportToExcel?holeid=" + "@ViewBag.Sondaje&tipo=Cu_mgl";
+
+        });
+        $('#btnExportPH').click(function () {
+
+            window.location = "/HidroGeologia/ExportToExcel?holeid=" + "@ViewBag.Sondaje&tipo=Ph_Uph";
+
+        });
+        $('#btnExportSul').click(function () {
+
+            window.location = "/HidroGeologia/ExportToExcel?holeid=" + "@ViewBag.Sondaje&tipo=Sul_mgl";
+
+        });
+        $('#btnExportNivel').click(function () {
+
+            window.location = "/HidroGeologia/ExportToExcel?holeid=" + "@ViewBag.Sondaje&tipo=NivelFreatico";
+
+        });
+    });
+</script>
+
+
+

@@ -1,0 +1,29 @@
+﻿
+
+<div id="loading">
+    <div class="container">
+        <div class="ring">
+            <img src="~/Images/LOGO CERRO COLORADO BHP.png" width="300" height="60" style="margin-top:200px;" />
+            <br />
+            Cargando página...
+            <span></span>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+          $(document).ready(function () {
+              $("#loading").hide();
+            BindSpinner();
+          });
+
+        function BindSpinner() {
+            $("loading").bind("ajaxSend", function () {
+                $(this).show();
+            }).bind("ajaxStop", function () {
+                $(this).hide();
+            }).bind("ajaxError", function () {
+                $(this).hide();
+            });
+        };
+</script>

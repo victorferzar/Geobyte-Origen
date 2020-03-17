@@ -1,0 +1,735 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DM_CC_SONModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DTM_COLLAR">
+          <Key>
+            <PropertyRef Name="HOLEID" />
+            <PropertyRef Name="PROJECTCODE" />
+          </Key>
+          <Property Name="HOLEID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PROJECTCODE" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="HOLETYPE" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EAST" Type="float" />
+          <Property Name="NORTH" Type="float" />
+          <Property Name="RL" Type="float" />
+          <Property Name="DEPTH" Type="float" />
+          <Property Name="PROSPECT" Type="varchar" MaxLength="20" />
+          <Property Name="STARTDATE" Type="varchar" MaxLength="20" />
+          <Property Name="ENDDATE" Type="varchar" MaxLength="20" />
+          <Property Name="ANO" Type="float" />
+          <Property Name="EMPRESA" Type="varchar" MaxLength="20" />
+          <Property Name="FECHA_COLLAR" Type="varchar" MaxLength="20" />
+          <Property Name="Fecha_Esquema" Type="varchar" MaxLength="20" />
+          <Property Name="Fecha_Mapeo" Type="varchar" MaxLength="20" />
+          <Property Name="FECHA_MEDICION" Type="varchar" MaxLength="20" />
+          <Property Name="FECHA_PARCIAL" Type="varchar" MaxLength="20" />
+          <Property Name="FECHA_PROP" Type="varchar" MaxLength="20" />
+          <Property Name="FECHA_RECUPERACION" Type="varchar" MaxLength="20" />
+          <Property Name="FECHA_REPLANTEO" Type="varchar" MaxLength="20" />
+          <Property Name="FECHA_SURVEY" Type="varchar" MaxLength="20" />
+          <Property Name="FECHA_VALIDACION" Type="varchar" MaxLength="20" />
+          <Property Name="FF_ID_FINAL" Type="varchar" MaxLength="20" />
+          <Property Name="FF_ID_PROPUESTO" Type="varchar" MaxLength="20" />
+          <Property Name="FF_NOMBRE_FINAL" Type="varchar" MaxLength="20" />
+          <Property Name="FF_NOMBRE_PROPUESTO" Type="varchar" MaxLength="20" />
+          <Property Name="FISCAL_YEAR" Type="float" />
+          <Property Name="Geologo_Esquema" Type="varchar" MaxLength="20" />
+          <Property Name="Geologo_Mapeo" Type="varchar" MaxLength="20" />
+          <Property Name="HOLEID_MOD" Type="varchar" MaxLength="20" />
+          <Property Name="HOLEID_PROP" Type="varchar" MaxLength="20" />
+          <Property Name="LOA16" Type="varchar" MaxLength="20" />
+          <Property Name="LOA17" Type="varchar" MaxLength="20" />
+          <Property Name="MEDICION" Type="varchar" MaxLength="20" />
+          <Property Name="MODELO" Type="float" />
+          <Property Name="MODELO_2008" Type="float" />
+          <Property Name="MODELO_2009" Type="float" />
+          <Property Name="MODELO_2010" Type="float" />
+          <Property Name="MODELO_2011" Type="float" />
+          <Property Name="MODELO_2012" Type="float" />
+          <Property Name="MODELO_2012_HYP" Type="float" />
+          <Property Name="MODELO_2013" Type="float" />
+          <Property Name="MODELO_2014" Type="float" />
+          <Property Name="MODELO_2015" Type="float" />
+          <Property Name="MODELO_2016" Type="float" />
+          <Property Name="MODELO_2017" Type="float" />
+          <Property Name="MODELO_2YB" Type="float" />
+          <Property Name="MODELO_QRM17" Type="float" />
+          <Property Name="PERSONA_COLLAR" Type="varchar" MaxLength="20" />
+          <Property Name="PERSONA_PARCIAL" Type="varchar" MaxLength="20" />
+          <Property Name="PERSONA_RECUPERACION" Type="varchar" MaxLength="20" />
+          <Property Name="PERSONA_REPLANTEO" Type="varchar" MaxLength="20" />
+          <Property Name="PERSONA_REVER_SOND" Type="varchar" MaxLength="20" />
+          <Property Name="PERSONA_SURVEY" Type="varchar" MaxLength="20" />
+          <Property Name="PERSONA_VALIDACION" Type="varchar" MaxLength="20" />
+          <Property Name="PRIORIDAD_CARGA" Type="float" />
+          <Property Name="PRIORIDAD_PERFO" Type="float" />
+          <Property Name="PROF_PROPUESTA" Type="float" />
+          <Property Name="RECOD_BD" Type="varchar" MaxLength="20" />
+          <Property Name="RECOD_FECHA" Type="varchar" MaxLength="20" />
+          <Property Name="RECOD_GEOL_ALT" Type="varchar" MaxLength="20" />
+          <Property Name="RECOD_GEOL_TMIN" Type="varchar" MaxLength="20" />
+          <Property Name="RECOD_STATUS" Type="varchar" MaxLength="20" />
+          <Property Name="SR_PROPUESTO" Type="varchar" MaxLength="20" />
+          <Property Name="STATUS" Type="varchar" MaxLength="20" />
+          <Property Name="T_MSH" Type="float" />
+          <Property Name="T_OX" Type="float" />
+          <Property Name="T_PRI" Type="float" />
+          <Property Name="T_SULF" Type="float" />
+          <Property Name="OBS_COLLAR" Type="varchar" MaxLength="254" />
+          <Property Name="OBS_REPLANTEO" Type="varchar" MaxLength="254" />
+          <Property Name="COMENTARIOS" Type="varchar" MaxLength="4000" />
+          <Property Name="RUTA_FOTO" Type="varchar" MaxLength="4000" />
+          <Property Name="PROPUESTAS_X" Type="float" />
+          <Property Name="PROPUESTAS_Y" Type="float" />
+          <Property Name="PROPUESTAS_Z" Type="float" />
+          <Property Name="REPLANTEADAS_X" Type="float" />
+          <Property Name="REPLANTEADAS_Y" Type="float" />
+          <Property Name="REPLANTEADAS_Z" Type="float" />
+          <Property Name="AZIMUTH_inicio" Type="float" />
+          <Property Name="AZIMUTH_media" Type="float" />
+          <Property Name="AZIMUTH_PROP" Type="float" />
+          <Property Name="COTA_VULCAN_d" Type="float" />
+          <Property Name="CS_Atrapado" Type="float" />
+          <Property Name="DDH_Perf" Type="float" />
+          <Property Name="DH_DIAMETERTYPE_LIST" Type="varchar" MaxLength="30" />
+          <Property Name="DH_DRILLTYPE_LIST" Type="varchar" MaxLength="30" />
+          <Property Name="DIP_inicio" Type="float" />
+          <Property Name="DIP_media" Type="float" />
+          <Property Name="DIP_PROP" Type="float" />
+          <Property Name="Distancia_Prop" Type="float" />
+          <Property Name="ESTE_GIS" Type="float" />
+          <Property Name="ESTE_VULCAN_d" Type="float" />
+          <Property Name="FIN_POZO" Type="varchar" MaxLength="20" />
+          <Property Name="LODO_Perf" Type="float" />
+          <Property Name="Maquina_Perf" Type="varchar" MaxLength="254" />
+          <Property Name="MLP" Type="varchar" MaxLength="20" />
+          <Property Name="Muestras_mts" Type="float" />
+          <Property Name="NORTE_GIS" Type="float" />
+          <Property Name="NORTE_VULCAN_d" Type="float" />
+          <Property Name="RC_Perf" Type="float" />
+          <Property Name="Survey" Type="int" />
+          <Property Name="TIPO_SURVEY" Type="varchar" MaxLength="10" />
+          <Property Name="TSULF" Type="float" />
+          <Property Name="PROP_DDH_M" Type="float" />
+          <Property Name="PROP_ODEX_M" Type="float" />
+          <Property Name="PROP_RC_M" Type="float" />
+          <Property Name="PROP_TLODO_M" Type="float" />
+        </EntityType>
+        <EntityType Name="DTM_QAQC_BLK_STD">
+          <Key>
+            <PropertyRef Name="CHECKID" />
+            <PropertyRef Name="ASSAYNAME" />
+            <PropertyRef Name="LABJOBNO" />
+          </Key>
+          <Property Name="CHECKID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="STANDARDID" Type="varchar" MaxLength="30" />
+          <Property Name="HOLEID" Type="varchar" MaxLength="20" />
+          <Property Name="ASSAYNAME" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ASSAYVALUE" Type="float" />
+          <Property Name="ASSAY_PRIORITY" Type="int" Nullable="false" />
+          <Property Name="DESPATCHNO" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="LABJOBNO" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LABCODE" Type="varchar" MaxLength="10" />
+          <Property Name="ANALYSISSUITE" Type="varchar" MaxLength="30" />
+          <Property Name="RETURNDATE" Type="varchar" MaxLength="20" />
+          <Property Name="SENDDATE" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="DTM_QAQC_DUP">
+          <Key>
+            <PropertyRef Name="ID_OR" />
+            <PropertyRef Name="ID_CK" />
+            <PropertyRef Name="HOLEID" />
+            <PropertyRef Name="PROJECTCODE" />
+            <PropertyRef Name="ASSAYNAME" />
+            <PropertyRef Name="PRIORITY_OR" />
+            <PropertyRef Name="PRIORITY_CK" />
+            <PropertyRef Name="LABJOBNO_OR" />
+            <PropertyRef Name="LABJOBNO_CK" />
+          </Key>
+          <Property Name="ID_OR" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ID_CK" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="HOLEID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PROJECTCODE" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SAMPFROM" Type="float" />
+          <Property Name="SAMPTO" Type="float" />
+          <Property Name="CHECKSTAGE" Type="varchar" MaxLength="10" />
+          <Property Name="ASSAYNAME" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ASSAYVALUE_OR" Type="float" />
+          <Property Name="ASSAYVALUE_CK" Type="float" />
+          <Property Name="DIFERENCIA" Type="float" />
+          <Property Name="VAR_REL" Type="float" />
+          <Property Name="AMPD" Type="float" />
+          <Property Name="PROMEDIO" Type="float" />
+          <Property Name="MPD" Type="float" />
+          <Property Name="PRIORITY_OR" Type="int" Nullable="false" />
+          <Property Name="PRIORITY_CK" Type="int" Nullable="false" />
+          <Property Name="DESPATCHNO" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="LABJOBNO_OR" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LABJOBNO_CK" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LABCODE" Type="varchar" MaxLength="10" />
+          <Property Name="ANALYSISSUITE" Type="varchar" MaxLength="30" />
+          <Property Name="SENDDATE" Type="datetime" />
+          <Property Name="RETURNDATE" Type="datetime" />
+          <Property Name="SAMPLE_DRILLTYPE" Type="varchar" MaxLength="100" />
+          <Property Name="T_MIN" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="DTM_STANDARDSASSAY">
+          <Key>
+            <PropertyRef Name="STANDARDID" />
+            <PropertyRef Name="NAME" />
+          </Key>
+          <Property Name="STANDARDID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="STANDARDVALUE" Type="float" />
+          <Property Name="STANDARDDEVIATION" Type="float" />
+          <Property Name="STANDARDRANGE" Type="float" />
+          <Property Name="ACCEPTABLEMIN" Type="float" />
+          <Property Name="ACCEPTABLEMAX" Type="float" />
+        </EntityType>
+        <EntityType Name="DTM_STANDARDSDEFINITION">
+          <Key>
+            <PropertyRef Name="STANDARDID" />
+          </Key>
+          <Property Name="STANDARDID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="STANDARDDATE" Type="varchar" MaxLength="20" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="254" />
+          <Property Name="STANDARDTYPE" Type="varchar" MaxLength="30" />
+          <Property Name="STANDARDACTIVE" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="DTM_SUITEDEFINITION">
+          <Key>
+            <PropertyRef Name="ANALYSISSUITE" />
+            <PropertyRef Name="NAME" />
+          </Key>
+          <Property Name="ANALYSISSUITE" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ANALYSISREQUIRED" Type="tinyint" />
+        </EntityType>
+        <Association Name="FK_DTM_STANDARDSASSAY_DTM_STANDARDSDEFINITION">
+          <End Role="DTM_STANDARDSDEFINITION" Type="Self.DTM_STANDARDSDEFINITION" Multiplicity="1" />
+          <End Role="DTM_STANDARDSASSAY" Type="Self.DTM_STANDARDSASSAY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DTM_STANDARDSDEFINITION">
+              <PropertyRef Name="STANDARDID" />
+            </Principal>
+            <Dependent Role="DTM_STANDARDSASSAY">
+              <PropertyRef Name="STANDARDID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DM_CC_SONModelStoreContainer">
+          <EntitySet Name="DTM_COLLAR" EntityType="Self.DTM_COLLAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DTM_QAQC_BLK_STD" EntityType="Self.DTM_QAQC_BLK_STD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DTM_QAQC_DUP" EntityType="Self.DTM_QAQC_DUP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DTM_STANDARDSASSAY" EntityType="Self.DTM_STANDARDSASSAY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DTM_STANDARDSDEFINITION" EntityType="Self.DTM_STANDARDSDEFINITION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DTM_SUITEDEFINITION" EntityType="Self.DTM_SUITEDEFINITION" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DTM_STANDARDSASSAY_DTM_STANDARDSDEFINITION" Association="Self.FK_DTM_STANDARDSASSAY_DTM_STANDARDSDEFINITION">
+            <End Role="DTM_STANDARDSDEFINITION" EntitySet="DTM_STANDARDSDEFINITION" />
+            <End Role="DTM_STANDARDSASSAY" EntitySet="DTM_STANDARDSASSAY" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DM_CC_SONModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DTM_COLLAR">
+          <Key>
+            <PropertyRef Name="HOLEID" />
+            <PropertyRef Name="PROJECTCODE" />
+          </Key>
+          <Property Name="HOLEID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PROJECTCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HOLETYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EAST" Type="Double" />
+          <Property Name="NORTH" Type="Double" />
+          <Property Name="RL" Type="Double" />
+          <Property Name="DEPTH" Type="Double" />
+          <Property Name="PROSPECT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="STARTDATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ENDDATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ANO" Type="Double" />
+          <Property Name="EMPRESA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_COLLAR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Esquema" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Mapeo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_MEDICION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_PARCIAL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_PROP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_RECUPERACION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_REPLANTEO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_SURVEY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_VALIDACION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FF_ID_FINAL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FF_ID_PROPUESTO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FF_NOMBRE_FINAL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FF_NOMBRE_PROPUESTO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FISCAL_YEAR" Type="Double" />
+          <Property Name="Geologo_Esquema" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Geologo_Mapeo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="HOLEID_MOD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="HOLEID_PROP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LOA16" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LOA17" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MEDICION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MODELO" Type="Double" />
+          <Property Name="MODELO_2008" Type="Double" />
+          <Property Name="MODELO_2009" Type="Double" />
+          <Property Name="MODELO_2010" Type="Double" />
+          <Property Name="MODELO_2011" Type="Double" />
+          <Property Name="MODELO_2012" Type="Double" />
+          <Property Name="MODELO_2012_HYP" Type="Double" />
+          <Property Name="MODELO_2013" Type="Double" />
+          <Property Name="MODELO_2014" Type="Double" />
+          <Property Name="MODELO_2015" Type="Double" />
+          <Property Name="MODELO_2016" Type="Double" />
+          <Property Name="MODELO_2017" Type="Double" />
+          <Property Name="MODELO_2YB" Type="Double" />
+          <Property Name="MODELO_QRM17" Type="Double" />
+          <Property Name="PERSONA_COLLAR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONA_PARCIAL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONA_RECUPERACION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONA_REPLANTEO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONA_REVER_SOND" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONA_SURVEY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONA_VALIDACION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PRIORIDAD_CARGA" Type="Double" />
+          <Property Name="PRIORIDAD_PERFO" Type="Double" />
+          <Property Name="PROF_PROPUESTA" Type="Double" />
+          <Property Name="RECOD_BD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RECOD_FECHA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RECOD_GEOL_ALT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RECOD_GEOL_TMIN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RECOD_STATUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SR_PROPUESTO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="T_MSH" Type="Double" />
+          <Property Name="T_OX" Type="Double" />
+          <Property Name="T_PRI" Type="Double" />
+          <Property Name="T_SULF" Type="Double" />
+          <Property Name="OBS_COLLAR" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="OBS_REPLANTEO" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="COMENTARIOS" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="RUTA_FOTO" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="PROPUESTAS_X" Type="Double" />
+          <Property Name="PROPUESTAS_Y" Type="Double" />
+          <Property Name="PROPUESTAS_Z" Type="Double" />
+          <Property Name="REPLANTEADAS_X" Type="Double" />
+          <Property Name="REPLANTEADAS_Y" Type="Double" />
+          <Property Name="REPLANTEADAS_Z" Type="Double" />
+          <Property Name="AZIMUTH_inicio" Type="Double" />
+          <Property Name="AZIMUTH_media" Type="Double" />
+          <Property Name="AZIMUTH_PROP" Type="Double" />
+          <Property Name="COTA_VULCAN_d" Type="Double" />
+          <Property Name="CS_Atrapado" Type="Double" />
+          <Property Name="DDH_Perf" Type="Double" />
+          <Property Name="DH_DIAMETERTYPE_LIST" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DH_DRILLTYPE_LIST" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DIP_inicio" Type="Double" />
+          <Property Name="DIP_media" Type="Double" />
+          <Property Name="DIP_PROP" Type="Double" />
+          <Property Name="Distancia_Prop" Type="Double" />
+          <Property Name="ESTE_GIS" Type="Double" />
+          <Property Name="ESTE_VULCAN_d" Type="Double" />
+          <Property Name="FIN_POZO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LODO_Perf" Type="Double" />
+          <Property Name="Maquina_Perf" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="MLP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Muestras_mts" Type="Double" />
+          <Property Name="NORTE_GIS" Type="Double" />
+          <Property Name="NORTE_VULCAN_d" Type="Double" />
+          <Property Name="RC_Perf" Type="Double" />
+          <Property Name="Survey" Type="Int32" />
+          <Property Name="TIPO_SURVEY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TSULF" Type="Double" />
+          <Property Name="PROP_DDH_M" Type="Double" />
+          <Property Name="PROP_ODEX_M" Type="Double" />
+          <Property Name="PROP_RC_M" Type="Double" />
+          <Property Name="PROP_TLODO_M" Type="Double" />
+          <NavigationProperty Name="DTM_QAQC_DUP" Relationship="DM_CC_SONModel.DTM_COLLARDTM_QAQC_DUP" FromRole="DTM_COLLAR" ToRole="DTM_QAQC_DUP" />
+        </EntityType>
+        <EntityType Name="DTM_QAQC_BLK_STD">
+          <Key>
+            <PropertyRef Name="CHECKID" />
+            <PropertyRef Name="ASSAYNAME" />
+            <PropertyRef Name="LABJOBNO" />
+          </Key>
+          <Property Name="CHECKID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STANDARDID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="HOLEID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ASSAYNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASSAYVALUE" Type="Double" />
+          <Property Name="ASSAY_PRIORITY" Type="Int32" Nullable="false" />
+          <Property Name="DESPATCHNO" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LABJOBNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LABCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ANALYSISSUITE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RETURNDATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SENDDATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DTM_STANDARDSDEFINITION" Relationship="DM_CC_SONModel.DTM_QAQC_BLK_STDDTM_STANDARDSDEFINITION" FromRole="DTM_QAQC_BLK_STD" ToRole="DTM_STANDARDSDEFINITION" />
+        </EntityType>
+        <EntityType Name="DTM_QAQC_DUP">
+          <Key>
+            <PropertyRef Name="ID_OR" />
+            <PropertyRef Name="ID_CK" />
+            <PropertyRef Name="HOLEID" />
+            <PropertyRef Name="PROJECTCODE" />
+            <PropertyRef Name="ASSAYNAME" />
+            <PropertyRef Name="PRIORITY_OR" />
+            <PropertyRef Name="PRIORITY_CK" />
+            <PropertyRef Name="LABJOBNO_OR" />
+            <PropertyRef Name="LABJOBNO_CK" />
+          </Key>
+          <Property Name="ID_OR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_CK" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HOLEID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PROJECTCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SAMPFROM" Type="Double" />
+          <Property Name="SAMPTO" Type="Double" />
+          <Property Name="CHECKSTAGE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ASSAYNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASSAYVALUE_OR" Type="Double" />
+          <Property Name="ASSAYVALUE_CK" Type="Double" />
+          <Property Name="DIFERENCIA" Type="Double" />
+          <Property Name="VAR_REL" Type="Double" />
+          <Property Name="AMPD" Type="Double" />
+          <Property Name="PROMEDIO" Type="Double" />
+          <Property Name="MPD" Type="Double" />
+          <Property Name="PRIORITY_OR" Type="Int32" Nullable="false" />
+          <Property Name="PRIORITY_CK" Type="Int32" Nullable="false" />
+          <Property Name="DESPATCHNO" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LABJOBNO_OR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LABJOBNO_CK" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LABCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ANALYSISSUITE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SENDDATE" Type="DateTime" Precision="3" />
+          <Property Name="RETURNDATE" Type="DateTime" Precision="3" />
+          <Property Name="SAMPLE_DRILLTYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="T_MIN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DTM_COLLAR" Relationship="DM_CC_SONModel.DTM_COLLARDTM_QAQC_DUP" FromRole="DTM_QAQC_DUP" ToRole="DTM_COLLAR" />
+        </EntityType>
+        <EntityType Name="DTM_STANDARDSASSAY">
+          <Key>
+            <PropertyRef Name="STANDARDID" />
+            <PropertyRef Name="NAME" />
+          </Key>
+          <Property Name="STANDARDID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STANDARDVALUE" Type="Double" />
+          <Property Name="STANDARDDEVIATION" Type="Double" />
+          <Property Name="STANDARDRANGE" Type="Double" />
+          <Property Name="ACCEPTABLEMIN" Type="Double" />
+          <Property Name="ACCEPTABLEMAX" Type="Double" />
+          <NavigationProperty Name="DTM_STANDARDSDEFINITION" Relationship="Self.FK_DTM_STANDARDSASSAY_DTM_STANDARDSDEFINITION" FromRole="DTM_STANDARDSASSAY" ToRole="DTM_STANDARDSDEFINITION" />
+        </EntityType>
+        <EntityType Name="DTM_STANDARDSDEFINITION">
+          <Key>
+            <PropertyRef Name="STANDARDID" />
+          </Key>
+          <Property Name="STANDARDID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STANDARDDATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="STANDARDTYPE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="STANDARDACTIVE" Type="Byte" />
+          <NavigationProperty Name="DTM_STANDARDSASSAY" Relationship="Self.FK_DTM_STANDARDSASSAY_DTM_STANDARDSDEFINITION" FromRole="DTM_STANDARDSDEFINITION" ToRole="DTM_STANDARDSASSAY" />
+          <NavigationProperty Name="DTM_QAQC_BLK_STD" Relationship="DM_CC_SONModel.DTM_QAQC_BLK_STDDTM_STANDARDSDEFINITION" FromRole="DTM_STANDARDSDEFINITION" ToRole="DTM_QAQC_BLK_STD" />
+        </EntityType>
+        <EntityType Name="DTM_SUITEDEFINITION">
+          <Key>
+            <PropertyRef Name="ANALYSISSUITE" />
+            <PropertyRef Name="NAME" />
+          </Key>
+          <Property Name="ANALYSISSUITE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ANALYSISREQUIRED" Type="Byte" />
+        </EntityType>
+        <Association Name="FK_DTM_STANDARDSASSAY_DTM_STANDARDSDEFINITION">
+          <End Role="DTM_STANDARDSDEFINITION" Type="Self.DTM_STANDARDSDEFINITION" Multiplicity="1" />
+          <End Role="DTM_STANDARDSASSAY" Type="Self.DTM_STANDARDSASSAY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DTM_STANDARDSDEFINITION">
+              <PropertyRef Name="STANDARDID" />
+            </Principal>
+            <Dependent Role="DTM_STANDARDSASSAY">
+              <PropertyRef Name="STANDARDID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DM_CC_SONEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DTM_COLLAR" EntityType="Self.DTM_COLLAR" />
+          <EntitySet Name="DTM_QAQC_BLK_STD" EntityType="Self.DTM_QAQC_BLK_STD" />
+          <EntitySet Name="DTM_QAQC_DUP" EntityType="Self.DTM_QAQC_DUP" />
+          <EntitySet Name="DTM_STANDARDSASSAY" EntityType="Self.DTM_STANDARDSASSAY" />
+          <EntitySet Name="DTM_STANDARDSDEFINITION" EntityType="Self.DTM_STANDARDSDEFINITION" />
+          <EntitySet Name="DTM_SUITEDEFINITION" EntityType="Self.DTM_SUITEDEFINITION" />
+          <AssociationSet Name="FK_DTM_STANDARDSASSAY_DTM_STANDARDSDEFINITION" Association="Self.FK_DTM_STANDARDSASSAY_DTM_STANDARDSDEFINITION">
+            <End Role="DTM_STANDARDSDEFINITION" EntitySet="DTM_STANDARDSDEFINITION" />
+            <End Role="DTM_STANDARDSASSAY" EntitySet="DTM_STANDARDSASSAY" />
+          </AssociationSet>
+          <AssociationSet Name="DTM_QAQC_BLK_STDDTM_STANDARDSDEFINITION" Association="DM_CC_SONModel.DTM_QAQC_BLK_STDDTM_STANDARDSDEFINITION">
+            <End Role="DTM_QAQC_BLK_STD" EntitySet="DTM_QAQC_BLK_STD" />
+            <End Role="DTM_STANDARDSDEFINITION" EntitySet="DTM_STANDARDSDEFINITION" />
+          </AssociationSet>
+          <AssociationSet Name="DTM_COLLARDTM_QAQC_DUP" Association="DM_CC_SONModel.DTM_COLLARDTM_QAQC_DUP">
+            <End Role="DTM_COLLAR" EntitySet="DTM_COLLAR" />
+            <End Role="DTM_QAQC_DUP" EntitySet="DTM_QAQC_DUP" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="DTM_QAQC_BLK_STDDTM_STANDARDSDEFINITION">
+          <End Type="DM_CC_SONModel.DTM_QAQC_BLK_STD" Role="DTM_QAQC_BLK_STD" Multiplicity="*" />
+          <End Type="DM_CC_SONModel.DTM_STANDARDSDEFINITION" Role="DTM_STANDARDSDEFINITION" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DTM_STANDARDSDEFINITION">
+              <PropertyRef Name="STANDARDID" />
+            </Principal>
+            <Dependent Role="DTM_QAQC_BLK_STD">
+              <PropertyRef Name="STANDARDID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DTM_COLLARDTM_QAQC_DUP">
+          <End Type="DM_CC_SONModel.DTM_COLLAR" Role="DTM_COLLAR" Multiplicity="1" />
+          <End Type="DM_CC_SONModel.DTM_QAQC_DUP" Role="DTM_QAQC_DUP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DTM_COLLAR">
+              <PropertyRef Name="HOLEID" />
+              <PropertyRef Name="PROJECTCODE" />
+            </Principal>
+            <Dependent Role="DTM_QAQC_DUP">
+              <PropertyRef Name="HOLEID" />
+              <PropertyRef Name="PROJECTCODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DM_CC_SONModelStoreContainer" CdmEntityContainer="DM_CC_SONEntities">
+          <EntitySetMapping Name="DTM_COLLAR">
+            <EntityTypeMapping TypeName="DM_CC_SONModel.DTM_COLLAR">
+              <MappingFragment StoreEntitySet="DTM_COLLAR">
+                <ScalarProperty Name="HOLEID" ColumnName="HOLEID" />
+                <ScalarProperty Name="PROJECTCODE" ColumnName="PROJECTCODE" />
+                <ScalarProperty Name="HOLETYPE" ColumnName="HOLETYPE" />
+                <ScalarProperty Name="EAST" ColumnName="EAST" />
+                <ScalarProperty Name="NORTH" ColumnName="NORTH" />
+                <ScalarProperty Name="RL" ColumnName="RL" />
+                <ScalarProperty Name="DEPTH" ColumnName="DEPTH" />
+                <ScalarProperty Name="PROSPECT" ColumnName="PROSPECT" />
+                <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+                <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
+                <ScalarProperty Name="ANO" ColumnName="ANO" />
+                <ScalarProperty Name="EMPRESA" ColumnName="EMPRESA" />
+                <ScalarProperty Name="FECHA_COLLAR" ColumnName="FECHA_COLLAR" />
+                <ScalarProperty Name="Fecha_Esquema" ColumnName="Fecha_Esquema" />
+                <ScalarProperty Name="Fecha_Mapeo" ColumnName="Fecha_Mapeo" />
+                <ScalarProperty Name="FECHA_MEDICION" ColumnName="FECHA_MEDICION" />
+                <ScalarProperty Name="FECHA_PARCIAL" ColumnName="FECHA_PARCIAL" />
+                <ScalarProperty Name="FECHA_PROP" ColumnName="FECHA_PROP" />
+                <ScalarProperty Name="FECHA_RECUPERACION" ColumnName="FECHA_RECUPERACION" />
+                <ScalarProperty Name="FECHA_REPLANTEO" ColumnName="FECHA_REPLANTEO" />
+                <ScalarProperty Name="FECHA_SURVEY" ColumnName="FECHA_SURVEY" />
+                <ScalarProperty Name="FECHA_VALIDACION" ColumnName="FECHA_VALIDACION" />
+                <ScalarProperty Name="FF_ID_FINAL" ColumnName="FF_ID_FINAL" />
+                <ScalarProperty Name="FF_ID_PROPUESTO" ColumnName="FF_ID_PROPUESTO" />
+                <ScalarProperty Name="FF_NOMBRE_FINAL" ColumnName="FF_NOMBRE_FINAL" />
+                <ScalarProperty Name="FF_NOMBRE_PROPUESTO" ColumnName="FF_NOMBRE_PROPUESTO" />
+                <ScalarProperty Name="FISCAL_YEAR" ColumnName="FISCAL_YEAR" />
+                <ScalarProperty Name="Geologo_Esquema" ColumnName="Geologo_Esquema" />
+                <ScalarProperty Name="Geologo_Mapeo" ColumnName="Geologo_Mapeo" />
+                <ScalarProperty Name="HOLEID_MOD" ColumnName="HOLEID_MOD" />
+                <ScalarProperty Name="HOLEID_PROP" ColumnName="HOLEID_PROP" />
+                <ScalarProperty Name="LOA16" ColumnName="LOA16" />
+                <ScalarProperty Name="LOA17" ColumnName="LOA17" />
+                <ScalarProperty Name="MEDICION" ColumnName="MEDICION" />
+                <ScalarProperty Name="MODELO" ColumnName="MODELO" />
+                <ScalarProperty Name="MODELO_2008" ColumnName="MODELO_2008" />
+                <ScalarProperty Name="MODELO_2009" ColumnName="MODELO_2009" />
+                <ScalarProperty Name="MODELO_2010" ColumnName="MODELO_2010" />
+                <ScalarProperty Name="MODELO_2011" ColumnName="MODELO_2011" />
+                <ScalarProperty Name="MODELO_2012" ColumnName="MODELO_2012" />
+                <ScalarProperty Name="MODELO_2012_HYP" ColumnName="MODELO_2012_HYP" />
+                <ScalarProperty Name="MODELO_2013" ColumnName="MODELO_2013" />
+                <ScalarProperty Name="MODELO_2014" ColumnName="MODELO_2014" />
+                <ScalarProperty Name="MODELO_2015" ColumnName="MODELO_2015" />
+                <ScalarProperty Name="MODELO_2016" ColumnName="MODELO_2016" />
+                <ScalarProperty Name="MODELO_2017" ColumnName="MODELO_2017" />
+                <ScalarProperty Name="MODELO_2YB" ColumnName="MODELO_2YB" />
+                <ScalarProperty Name="MODELO_QRM17" ColumnName="MODELO_QRM17" />
+                <ScalarProperty Name="PERSONA_COLLAR" ColumnName="PERSONA_COLLAR" />
+                <ScalarProperty Name="PERSONA_PARCIAL" ColumnName="PERSONA_PARCIAL" />
+                <ScalarProperty Name="PERSONA_RECUPERACION" ColumnName="PERSONA_RECUPERACION" />
+                <ScalarProperty Name="PERSONA_REPLANTEO" ColumnName="PERSONA_REPLANTEO" />
+                <ScalarProperty Name="PERSONA_REVER_SOND" ColumnName="PERSONA_REVER_SOND" />
+                <ScalarProperty Name="PERSONA_SURVEY" ColumnName="PERSONA_SURVEY" />
+                <ScalarProperty Name="PERSONA_VALIDACION" ColumnName="PERSONA_VALIDACION" />
+                <ScalarProperty Name="PRIORIDAD_CARGA" ColumnName="PRIORIDAD_CARGA" />
+                <ScalarProperty Name="PRIORIDAD_PERFO" ColumnName="PRIORIDAD_PERFO" />
+                <ScalarProperty Name="PROF_PROPUESTA" ColumnName="PROF_PROPUESTA" />
+                <ScalarProperty Name="RECOD_BD" ColumnName="RECOD_BD" />
+                <ScalarProperty Name="RECOD_FECHA" ColumnName="RECOD_FECHA" />
+                <ScalarProperty Name="RECOD_GEOL_ALT" ColumnName="RECOD_GEOL_ALT" />
+                <ScalarProperty Name="RECOD_GEOL_TMIN" ColumnName="RECOD_GEOL_TMIN" />
+                <ScalarProperty Name="RECOD_STATUS" ColumnName="RECOD_STATUS" />
+                <ScalarProperty Name="SR_PROPUESTO" ColumnName="SR_PROPUESTO" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="T_MSH" ColumnName="T_MSH" />
+                <ScalarProperty Name="T_OX" ColumnName="T_OX" />
+                <ScalarProperty Name="T_PRI" ColumnName="T_PRI" />
+                <ScalarProperty Name="T_SULF" ColumnName="T_SULF" />
+                <ScalarProperty Name="OBS_COLLAR" ColumnName="OBS_COLLAR" />
+                <ScalarProperty Name="OBS_REPLANTEO" ColumnName="OBS_REPLANTEO" />
+                <ScalarProperty Name="COMENTARIOS" ColumnName="COMENTARIOS" />
+                <ScalarProperty Name="RUTA_FOTO" ColumnName="RUTA_FOTO" />
+                <ScalarProperty Name="PROPUESTAS_X" ColumnName="PROPUESTAS_X" />
+                <ScalarProperty Name="PROPUESTAS_Y" ColumnName="PROPUESTAS_Y" />
+                <ScalarProperty Name="PROPUESTAS_Z" ColumnName="PROPUESTAS_Z" />
+                <ScalarProperty Name="REPLANTEADAS_X" ColumnName="REPLANTEADAS_X" />
+                <ScalarProperty Name="REPLANTEADAS_Y" ColumnName="REPLANTEADAS_Y" />
+                <ScalarProperty Name="REPLANTEADAS_Z" ColumnName="REPLANTEADAS_Z" />
+                <ScalarProperty Name="AZIMUTH_inicio" ColumnName="AZIMUTH_inicio" />
+                <ScalarProperty Name="AZIMUTH_media" ColumnName="AZIMUTH_media" />
+                <ScalarProperty Name="AZIMUTH_PROP" ColumnName="AZIMUTH_PROP" />
+                <ScalarProperty Name="COTA_VULCAN_d" ColumnName="COTA_VULCAN_d" />
+                <ScalarProperty Name="CS_Atrapado" ColumnName="CS_Atrapado" />
+                <ScalarProperty Name="DDH_Perf" ColumnName="DDH_Perf" />
+                <ScalarProperty Name="DH_DIAMETERTYPE_LIST" ColumnName="DH_DIAMETERTYPE_LIST" />
+                <ScalarProperty Name="DH_DRILLTYPE_LIST" ColumnName="DH_DRILLTYPE_LIST" />
+                <ScalarProperty Name="DIP_inicio" ColumnName="DIP_inicio" />
+                <ScalarProperty Name="DIP_media" ColumnName="DIP_media" />
+                <ScalarProperty Name="DIP_PROP" ColumnName="DIP_PROP" />
+                <ScalarProperty Name="Distancia_Prop" ColumnName="Distancia_Prop" />
+                <ScalarProperty Name="ESTE_GIS" ColumnName="ESTE_GIS" />
+                <ScalarProperty Name="ESTE_VULCAN_d" ColumnName="ESTE_VULCAN_d" />
+                <ScalarProperty Name="FIN_POZO" ColumnName="FIN_POZO" />
+                <ScalarProperty Name="LODO_Perf" ColumnName="LODO_Perf" />
+                <ScalarProperty Name="Maquina_Perf" ColumnName="Maquina_Perf" />
+                <ScalarProperty Name="MLP" ColumnName="MLP" />
+                <ScalarProperty Name="Muestras_mts" ColumnName="Muestras_mts" />
+                <ScalarProperty Name="NORTE_GIS" ColumnName="NORTE_GIS" />
+                <ScalarProperty Name="NORTE_VULCAN_d" ColumnName="NORTE_VULCAN_d" />
+                <ScalarProperty Name="RC_Perf" ColumnName="RC_Perf" />
+                <ScalarProperty Name="Survey" ColumnName="Survey" />
+                <ScalarProperty Name="TIPO_SURVEY" ColumnName="TIPO_SURVEY" />
+                <ScalarProperty Name="TSULF" ColumnName="TSULF" />
+                <ScalarProperty Name="PROP_DDH_M" ColumnName="PROP_DDH_M" />
+                <ScalarProperty Name="PROP_ODEX_M" ColumnName="PROP_ODEX_M" />
+                <ScalarProperty Name="PROP_RC_M" ColumnName="PROP_RC_M" />
+                <ScalarProperty Name="PROP_TLODO_M" ColumnName="PROP_TLODO_M" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DTM_QAQC_BLK_STD">
+            <EntityTypeMapping TypeName="DM_CC_SONModel.DTM_QAQC_BLK_STD">
+              <MappingFragment StoreEntitySet="DTM_QAQC_BLK_STD">
+                <ScalarProperty Name="CHECKID" ColumnName="CHECKID" />
+                <ScalarProperty Name="STANDARDID" ColumnName="STANDARDID" />
+                <ScalarProperty Name="HOLEID" ColumnName="HOLEID" />
+                <ScalarProperty Name="ASSAYNAME" ColumnName="ASSAYNAME" />
+                <ScalarProperty Name="ASSAYVALUE" ColumnName="ASSAYVALUE" />
+                <ScalarProperty Name="ASSAY_PRIORITY" ColumnName="ASSAY_PRIORITY" />
+                <ScalarProperty Name="DESPATCHNO" ColumnName="DESPATCHNO" />
+                <ScalarProperty Name="LABJOBNO" ColumnName="LABJOBNO" />
+                <ScalarProperty Name="LABCODE" ColumnName="LABCODE" />
+                <ScalarProperty Name="ANALYSISSUITE" ColumnName="ANALYSISSUITE" />
+                <ScalarProperty Name="RETURNDATE" ColumnName="RETURNDATE" />
+                <ScalarProperty Name="SENDDATE" ColumnName="SENDDATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DTM_QAQC_DUP">
+            <EntityTypeMapping TypeName="DM_CC_SONModel.DTM_QAQC_DUP">
+              <MappingFragment StoreEntitySet="DTM_QAQC_DUP">
+                <ScalarProperty Name="ID_OR" ColumnName="ID_OR" />
+                <ScalarProperty Name="ID_CK" ColumnName="ID_CK" />
+                <ScalarProperty Name="HOLEID" ColumnName="HOLEID" />
+                <ScalarProperty Name="PROJECTCODE" ColumnName="PROJECTCODE" />
+                <ScalarProperty Name="SAMPFROM" ColumnName="SAMPFROM" />
+                <ScalarProperty Name="SAMPTO" ColumnName="SAMPTO" />
+                <ScalarProperty Name="CHECKSTAGE" ColumnName="CHECKSTAGE" />
+                <ScalarProperty Name="ASSAYNAME" ColumnName="ASSAYNAME" />
+                <ScalarProperty Name="ASSAYVALUE_OR" ColumnName="ASSAYVALUE_OR" />
+                <ScalarProperty Name="ASSAYVALUE_CK" ColumnName="ASSAYVALUE_CK" />
+                <ScalarProperty Name="DIFERENCIA" ColumnName="DIFERENCIA" />
+                <ScalarProperty Name="VAR_REL" ColumnName="VAR_REL" />
+                <ScalarProperty Name="AMPD" ColumnName="AMPD" />
+                <ScalarProperty Name="PROMEDIO" ColumnName="PROMEDIO" />
+                <ScalarProperty Name="MPD" ColumnName="MPD" />
+                <ScalarProperty Name="PRIORITY_OR" ColumnName="PRIORITY_OR" />
+                <ScalarProperty Name="PRIORITY_CK" ColumnName="PRIORITY_CK" />
+                <ScalarProperty Name="DESPATCHNO" ColumnName="DESPATCHNO" />
+                <ScalarProperty Name="LABJOBNO_OR" ColumnName="LABJOBNO_OR" />
+                <ScalarProperty Name="LABJOBNO_CK" ColumnName="LABJOBNO_CK" />
+                <ScalarProperty Name="LABCODE" ColumnName="LABCODE" />
+                <ScalarProperty Name="ANALYSISSUITE" ColumnName="ANALYSISSUITE" />
+                <ScalarProperty Name="SENDDATE" ColumnName="SENDDATE" />
+                <ScalarProperty Name="RETURNDATE" ColumnName="RETURNDATE" />
+                <ScalarProperty Name="SAMPLE_DRILLTYPE" ColumnName="SAMPLE_DRILLTYPE" />
+                <ScalarProperty Name="T_MIN" ColumnName="T_MIN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DTM_STANDARDSASSAY">
+            <EntityTypeMapping TypeName="DM_CC_SONModel.DTM_STANDARDSASSAY">
+              <MappingFragment StoreEntitySet="DTM_STANDARDSASSAY">
+                <ScalarProperty Name="STANDARDID" ColumnName="STANDARDID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="STANDARDVALUE" ColumnName="STANDARDVALUE" />
+                <ScalarProperty Name="STANDARDDEVIATION" ColumnName="STANDARDDEVIATION" />
+                <ScalarProperty Name="STANDARDRANGE" ColumnName="STANDARDRANGE" />
+                <ScalarProperty Name="ACCEPTABLEMIN" ColumnName="ACCEPTABLEMIN" />
+                <ScalarProperty Name="ACCEPTABLEMAX" ColumnName="ACCEPTABLEMAX" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DTM_STANDARDSDEFINITION">
+            <EntityTypeMapping TypeName="DM_CC_SONModel.DTM_STANDARDSDEFINITION">
+              <MappingFragment StoreEntitySet="DTM_STANDARDSDEFINITION">
+                <ScalarProperty Name="STANDARDID" ColumnName="STANDARDID" />
+                <ScalarProperty Name="STANDARDDATE" ColumnName="STANDARDDATE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="STANDARDTYPE" ColumnName="STANDARDTYPE" />
+                <ScalarProperty Name="STANDARDACTIVE" ColumnName="STANDARDACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DTM_SUITEDEFINITION">
+            <EntityTypeMapping TypeName="DM_CC_SONModel.DTM_SUITEDEFINITION">
+              <MappingFragment StoreEntitySet="DTM_SUITEDEFINITION">
+                <ScalarProperty Name="ANALYSISSUITE" ColumnName="ANALYSISSUITE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ANALYSISREQUIRED" ColumnName="ANALYSISREQUIRED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

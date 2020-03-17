@@ -1,0 +1,119 @@
+﻿
+@using System.Security.Principal;
+
+<!doctype html>
+<html class="fixed">
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>INTRANET GEOLOGY CMCC</title>
+    <meta name="author" content="GEOBYTE">
+
+
+
+
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/font-awesome/css/font-awesome.css" />
+
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/bootstrap/css/bootstrap.css" />
+
+    <link rel="stylesheet" href="~/Scripts/assets/stylesheets/theme.css" />
+
+
+
+    <link rel="stylesheet" href="~/Scripts/assets/stylesheets/skins/default.css" />
+
+
+
+    <script src="~/Scripts/jquery-3.4.0.js"></script>
+
+
+</head>
+<body>
+    <section class="body">
+
+        <!-- start: header -->
+        <header class="header">
+            <div class="logo-container">
+                <a href="../" class="logo">
+
+                    <img src="~/Images/LOGO CERRO COLORADO BHP.png" height="35" />
+                </a>
+                <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+                    <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                </div>
+            </div>
+
+            <!-- start: search & user box -->
+            <div class="header-right">
+
+
+
+
+
+                <span class="separator"></span>
+
+                <div id="userbox" class="userbox">
+                    <a href="#" data-toggle="dropdown">
+
+                        <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
+                            <span class="name">Bienvenido:</span>
+                            <span class="name">@User.Identity.Name</span>
+
+                        </div>
+
+                    </a>
+
+
+                </div>
+            </div>
+            <!-- end: search & user box -->
+        </header>
+        <!-- end: header -->
+
+        <div class="inner-wrapper">
+
+            @Html.Partial("_Menu")
+
+
+            <section role="main" class="content-body">
+                <header class="page-header">
+                    <h2>INTRANET</h2>
+
+                    <div class="right-wrapper pull-right">
+                        <ol class="breadcrumbs">
+                            <li><span>Ubicación</span></li>
+                            <li><span>@HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()</span></li>
+                            <li><span>@HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString()</span></li>
+                        </ol>
+
+                        <div class="sidebar-right-toggle"></div>
+                    </div>
+                </header>
+
+                @RenderBody()
+
+                <!-- end: page -->
+            </section>
+        </div>
+
+
+    </section>
+
+    <!-- Vendor -->
+    <script src="~/Scripts/assets/vendor/jquery/jquery.js"></script>
+    <script src="~/Scripts/assets/vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="~/Scripts/assets/vendor/nanoscroller/nanoscroller.js"></script>
+    <
+    <script src="~/Scripts/assets/vendor/modernizr/modernizr.js"></script>
+    <!-- Examples -->
+    <!-- Theme Base, Components and Settings -->
+    <script src="~/Scripts/assets/javascripts/theme.js"></script>
+    <!-- Theme Custom -->
+
+
+
+
+
+</body>
+</html>

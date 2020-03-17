@@ -1,0 +1,128 @@
+﻿@using geologycmcc.Models.GeologiaQAQCModels;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+     ViewBag.Title = "Estándares";
+}
+
+<section class="panel">
+    <header class="panel-heading">
+        <div class="panel-actions">
+            <a href="#" class="fa fa-caret-down"> </a>
+            <a href="#" class="fa fa-times"></a>
+        </div>
+
+        <h2 class="panel-title">Formulario Búsqueda</h2>
+    </header>
+    <div class="panel-body">
+        @{  string tipo = "";
+            string TipoList = "";
+
+            if (ViewBag.TipoStd == "Normalizados") { tipo = "StandardNorm"; TipoList = "S"; }
+            else if (ViewBag.TipoStd == "Blancos") { tipo = "Blancos"; TipoList = "B"; }
+            else { tipo = "Standard"; TipoList = "S"; } }
+
+        @using (Ajax.BeginForm(tipo, "GeologiaQAQC", new AjaxOptions()
+        {
+            HttpMethod = "GET",
+            UpdateTargetId = "Grafico",
+            InsertionMode = InsertionMode.Replace,
+            LoadingElementId = "loading",
+            OnFailure = "failedSearch"
+        }, new { @class = "qaqc-form" }))
+        {
+            <div class="col-sm-2">
+                <label for="fechaini">F. Desde:</label>
+                <div class="input-group date" id="sandbox-container">
+                    @Html.TextBox("FechaDesde", DateTime.Now.AddDays(-7).ToString("dd/MM/yyyy"), new { @class = "form-control", @readonly="readonly"})
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                </div>
+            </div>
+                                <div class="col-sm-2">
+                                    <label for="fechafin">F. Hasta:</label>
+                                    <div class="input-group date" id="sandbox-container1">
+                                        @Html.TextBox("FechaHasta", DateTime.Now.ToString("dd/MM/yyyy"), new { @class = "form-control", @readonly = "readonly" })
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-th"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1">
+                                    <div class="form-group">
+                                        <label class="control-label" for="status">Lab</label>
+                                        <select class="form-control" multiple="multiple" size="10" id="Lab" name="Lab"></select>
+
+
+                                    </div>
+                                </div>                        <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="status">Suite</label>
+                                        <select class="form-control" multiple="multiple" size="10" id="SuiteLista" name="SuiteLista"></select>
+
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-1">
+                                    <div class="form-group">
+                                        <label class="control-label" for="std">STD</label>
+                                        <select class="form-control" multiple="multiple" size="10" id="StandardidLista" name="StandardidLista"></select>
+                                        <input id="tipo" value="@TipoList" hidden="hidden" />
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="status">Status</label>
+                                        @Html.DropDownList("PrioridadLista", null, new { @class = "form-control", Multiple = "multiple", size = "10" })
+
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="element">Elemento</label>
+
+                                        <select class="form-control" size="10" multiple="multiple" id="ElementosLista" name="ElementosLista"></select>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+
+                                        <input class="btn btn-primary" type="submit" value="Filtrar" id="polar" />
+
+                                    </div>
+                                </div>
+
+        }
+
+
+
+    </div>
+
+
+
+
+
+
+</section>
+
+
+
+<div id="Grafico"></div>
+@section Scripts {
+    <script type="text/javascript">
+                    function failedSearch() {
+                        $("Grafico").html = "Problema en la búsqueda. Porfavor, Intentelo de nuevo";
+                    }
+</script>
+}
+
+<script src="~/Scripts/Highcharts-4.0.1/js/modules/exporting.js"></script>
+<script src="~/Scripts/Highcharts-4.0.1/js/modules/data.js"></script>
+
+<script src="~/Scripts/Highcharts-4.0.1/js/highcharts.js"></script>

@@ -1,0 +1,95 @@
+﻿@{ Layout = null; }
+<!-- Specific Page Vendor CSS -->
+
+<section class="panel">
+    <header class="panel-heading">
+        <div class="panel-actions">
+            <a href="#" class="fa fa-caret-down"></a>
+            <a href="#" class="fa fa-times"></a>
+        </div>
+
+        <h2 class="panel-title">DIGITALIZADO</h2>
+    </header>
+
+
+
+    <div class="panel-body">
+
+        <div class="col-lg-12">
+
+            @if (ViewBag.MenuItemSondaje.Count > 0)
+            {
+
+                <div class="table-responsive">
+                    <table class="table table-striped mb-none">
+                        <thead>
+                            <tr>
+                                <th colspan="5"><center>TRAMOS DE BANDEJAS</center></th>
+                                
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                         
+           
+                                @for (int j = 1; j <= ViewBag.MenuItemSondaje.Count; j++)
+                                {
+                              
+                                    if (j  == 1 || j-1 % 5 ==0 )
+                                    {
+                                       @:<tr>
+                                            }
+
+
+
+                                    <td>
+
+                                        @{ string nombre = "[" + @ViewBag.MenuItemSondaje[j-1].GEOLFROM + " - " + @ViewBag.MenuItemSondaje[j-1].GEOLTO + "]"; }
+                                        @Ajax.ActionLink(
+                                          nombre,
+                                          "VisualizadorIMG",
+
+                                          new
+                                          {
+                                              idsub = @ViewBag.MenuItemSondaje[j-1].GEOLFROM,
+                                              holeid = @ViewBag.MenuItemSondaje[j-1].HOLEID
+                                          },
+                                          new AjaxOptions
+                                          {
+                                              HttpMethod = "GET",
+                                              InsertionMode = InsertionMode.Replace,
+                                              UpdateTargetId = "righthandsidebox"
+                                          }
+                                          , new { @class = "btn btn-primary" }
+                                          )
+
+
+                                    </td>
+
+
+                                            if (j % 5 == 0 || j  == ViewBag.MenuItemSondaje.Count)
+                                            {
+                                                @: </tr>
+
+                                        
+                                                }
+
+
+                                            }
+
+
+                     
+
+
+
+</tbody>
+                    </table>
+                </div>
+
+                       }            else {
+                                                        <center><h3>Sin documentos digitalizados</h3></center>}
+
+
+        </div>
+    </div>
+</section>

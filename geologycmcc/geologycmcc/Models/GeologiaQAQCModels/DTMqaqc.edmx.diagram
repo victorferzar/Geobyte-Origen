@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b4c967c21c644691af13eeb33413d36d" Name="Diagram1">
+        <EntityTypeShape EntityType="DM_CC_SONModel.DTM_COLLAR" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DM_CC_SONModel.DTM_QAQC_BLK_STD" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DM_CC_SONModel.DTM_QAQC_DUP" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DM_CC_SONModel.DTM_STANDARDSASSAY" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DM_CC_SONModel.DTM_STANDARDSDEFINITION" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DM_CC_SONModel.DTM_SUITEDEFINITION" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DM_CC_SONModel.FK_DTM_STANDARDSASSAY_DTM_STANDARDSDEFINITION" ManuallyRouted="false" />
+        <AssociationConnector Association="DM_CC_SONModel.DTM_QAQC_BLK_STDDTM_STANDARDSDEFINITION" />
+        <AssociationConnector Association="DM_CC_SONModel.DTM_COLLARDTM_QAQC_DUP" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,263 @@
+﻿
+@using geologycmcc.Models.DataDuplicados;
+@{
+
+    Layout =null;
+}
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryui")
+
+
+@model DotNet.Highcharts.Highcharts
+@if (ViewBag.DataError > 0)
+{
+
+    var contD = 0;
+    var j = 0;
+    var contTablaRe = 0;
+    var aux = 0;
+    <br /><br />
+
+    foreach (var graphsDUP in ViewBag.G2)
+    {
+
+        contD++;
+
+        if (contD == 1)
+        {
+            @:<div class="row"><div class="col-lg-12"> <section class="panel"><header class="panel-heading"><div class="panel-actions"><a href="#" class="fa fa-caret-down"></a><a href="#" class="fa fa-times"></a> </div><h2 class="panel-title">Gráficos</h2></header><div class="panel-body"><div class="row"><div class="col-md-12"><div class="col-md-4">@graphsDUP </div>
+                            }
+        else if (contD == 2)
+        {
+            @:<div class="col-md-8"> @graphsDUP</div></div> </div></div></section></div></div>
+                    }else {
+
+
+            <div class="row"><div class="col-lg-12"> <section class="panel"><header class="panel-heading"><div class="panel-actions"><a href="#" class="fa fa-caret-down"></a><a href="#" class="fa fa-times"></a> </div><h2 class="panel-title">Gráfico de Secuencia de Error</h2></header><div class="panel-body"><div class="row"><div class="col-md-12">@graphsDUP 
+
+
+                </div> </div></div></section></div></div>
+              
+                    }
+        
+                    contTablaRe = 0;
+
+                    if (contD % 3 == 0 && contD != 0)
+                    {
+
+                    for (j = 0; j < ViewBag.cantidad; j++)
+                    {
+
+                    foreach (CResumenDUP l in ViewBag.resumenG[j])
+                    {
+
+                    if (!@l.Muestra1.Equals("0"))
+                    {
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-12">
+
+
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    <div class="panel-actions">
+                                        <a href="#" class="fa fa-caret-down"></a>
+                                        <a href="#" class="fa fa-times"></a>
+                                    </div>
+
+                                    <h2 class="panel-title">Resumen:  @l.Name  / STAGE:  @l.Stage</h2>
+                                </header>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table mb-none" id="@string.Concat("tabla", j)">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>MUESTRA 1</th>
+                                                    <th>MUESTRA 2</th>
+                                                    <th>DIFERENCIA</th>
+                                                    <th>VAR. REL.</th>
+                                                    <th>AMPD </th>
+                                                    <th>AMPD-90%</th>
+                                                    <th>AMPD-90%</th>
+                                                    <th></th>
+                                                    <th>ZSCORE</th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th>REGRESION</th>
+                                                    <th></th>
+                                                </tr>
+                                                <tr>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th>GLOBAL</th>
+                                                    <th>GLOBAL</th>
+                                                    <th>ORDENADO</th>
+                                                    <th>GLOBAL-POND</th>
+                                                    <th>ORDENADO</th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (CResumenDUP dato in ViewBag.ResumenG[j])
+                                                {
+                                                    <tr>
+                                                        <th style="background-color:#ccc"> @dato.Texto1 </th>
+                                                        <td>
+                                                            @dato.Muestra1
+                                                        </td>
+                                                        <td>@dato.Muestra2</td>
+                                                        <td>@dato.Diferencia</td>
+                                                        <td>@dato.VReal</td>
+                                                        <td>@dato.Ampd</td>
+                                                        <td>@dato.Ampd90</td>
+                                                        <td>@dato.Ampd90O</td>
+                                                        <td>@dato.Separacion1</td>
+                                                        <th style="background-color:#ccc;">@dato.Texto2</th>
+                                                        <td>@dato.Valor2</td>
+                                                        <td>@dato.Separacion2</td>
+                                                        <th style="background-color:#ccc;">@dato.Texto3</th>
+                                                        <td>@dato.Valor3</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </section>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    <div class="panel-actions">
+                                        <a href="#" class="fa fa-caret-down"></a>
+                                        <a href="#" class="fa fa-times"></a>
+                                    </div>
+
+                                    <h2 class="panel-title">Listado:  @l.Name  / STAGE:  @l.Stage</h2>
+                                </header>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table mb-none" id="@string.Concat("info", j)">
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-md-1">N° </th>
+                                                    <th class="col-md-1">HOLEID </th>
+                                                    <th class="col-md-1">ID_OR </th>
+                                                    <th class="col-md-1">ID_CK </th>
+                                                    @*@<th class="col-md-1">CHECKSTAGE</th>*@
+                                                    <th class="col-md-1">SAMP FROM </th>
+                                                    <th class="col-md-1">SAMP TO </th>
+                                                    @*@<th class="col-md-1">NAME </th>*@
+                                                    <th class="col-md-1">OR </th>
+                                                    <th class="col-md-1">CK</th>
+                                                    <th class="col-md-1">DIF. </th>
+                                                    <th class="col-md-1">VAR REL</th>
+                                                    <th class="col-md-1">DATO %</th>
+                                                    <th class="col-md-1">AMPD</th>
+                                                    <th class="col-md-1">PROM.</th>
+                                                    <th class="col-md-1">MPD</th>
+                                                    <th class="col-md-1">AMPD POND</th>
+                                                    <th class="col-md-1">AMPD ORD</th>
+                                                    <th class="col-md-1">ZSCORE</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                @foreach (CDetalleDUP detalle in ViewBag.TablaDG[j])
+                                                {
+                                                    <tr>
+                                                        <td class="col-md-1"> @detalle.N</td>
+                                                        <td class="col-md-1">@detalle.HOLEID</td>
+                                                        <td class="col-md-1">@detalle.ID_OR</td>
+                                                        <td class="col-md-1">@detalle.ID_CK</td>
+                                                        @* <td class="col-md-1">@detalle.CHECKSTAGE</td>*@
+                                                        <td class="col-md-1">@detalle.SAMPFROM</td>
+                                                        <td class="col-md-1">@detalle.SAMPTO</td>
+                                                        @* <td class="col-md-1">@detalle.NAME</td>*@
+                                                        <td class="col-md-1">@detalle.ASSAYVALUE_OR</td>
+                                                        <td class="col-md-1">@detalle.ASSAYVALUE_CK</td>
+                                                        <td class="col-md-1">@detalle.DIFERENCIA</td>
+                                                        <td class="col-md-1">@detalle.VAL_REL</td>
+                                                        <td class="col-md-1">@detalle.NPORCDATOS</td>
+                                                        <td class="col-md-1">@detalle.AMPD</td>
+                                                        <td class="col-md-1">@detalle.PROMEDIO</td>
+                                                        <td class="col-md-1">@detalle.MPD</td>
+                                                        <td class="col-md-1">@detalle.AMPD_POND</td>
+                                                        <td class="col-md-1">@detalle.AMPD_ORD</td>
+                                                        <td class="col-md-1">@detalle.ZCORE</td>
+                                                    </tr>
+
+                                                }
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </section>
+
+
+                        </div>
+
+                    </div>
+                    }
+                    break;
+                    }
+
+                    }
+                    contTablaRe++;
+
+                    if (contTablaRe == 4)
+                    {
+                    aux = j;
+                    }
+                    <hr />
+
+
+                    }
+                    }
+                    }
+                    else if (ViewBag.DataError <= 0 && ViewBag.mensajeError == 0)
+                    {
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>Sin Resultados, Favor realice una nueva búsqueda.</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    }
+
+
+
+                    <script type="text/javascript">
+                        $("#charts0_container").ready(function () {
+
+                            charts0.update({
+                                chart: {
+                                    //  plotAreaWidth: 300,
+                                    plotAreaHeight: 500
+                                },
+                            });
+
+                        });
+                    </script>
+
+
+

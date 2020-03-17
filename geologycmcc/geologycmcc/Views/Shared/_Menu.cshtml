@@ -1,0 +1,355 @@
+﻿
+@{
+    string controlador = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+    string action = HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString();
+}
+
+<aside id="sidebar-left" class="sidebar-left">
+
+    <div class="sidebar-header">
+        <div class="sidebar-title">
+            Navigation
+        </div>
+        <div id="LeftBar" class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+            <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+        </div>
+    </div>
+
+    <div class="nano">
+        <div class="nano-content">
+            <nav id="menu" class="nav-main" role="navigation">
+                <ul class="nav nav-main">
+                    <!-- Portada-->
+
+                    <li>
+                        <a href="@Url.Action("Index", "HOME")">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                            <span>PORTADA</span>
+                        </a>
+                    </li>
+
+                    <!-- Drilling-->
+                    
+                                        @if (controlador.Equals("Drilling")) {
+                                            @:<li class="nav-parent nav-expanded nav-active">
+                                        }
+                                        else { 
+                                            @: <li class="nav-parent">
+                                        }
+
+                                                <a>
+                                                    <i class="fa fa-list-alt" aria-hidden="true"></i>
+                                                    <span>DRILLING</span>
+                                                </a>
+                                                <ul class="nav nav-children">
+                                                    @if (action.Equals("Index"))
+                                                    {
+                                                        @:<li class="nav-active">
+                                                    }else {
+                                                        @: <li>
+                                                    }
+                                               
+                                                               <a href="@Url.Action("Index", "Drilling")">Portada</a>
+                                                    </li>
+                                                    @if (action.Equals("PerforacionDiaria"))
+                                                    {
+                                                        @:<li class="nav-active">
+                                                    }else {
+                                                        @:<li>
+                                                    }
+
+                                                    <a href="@Url.Action("PerforacionDiaria", "Drilling")">Estado de Perforación</a>
+                                                </li>
+                                                    @if (action.Equals("PlanoPerforacion"))
+                                                    {
+                                                        @: <li class="nav-active">
+                                                    }else {
+                                                        @: <li>
+                                                    }
+
+                                                    <a href="@Url.Action("PlanoPerforacion", "Drilling")">Plano de Perforación</a>
+                                                </li>
+                                                </ul>
+                                            </li>
+                    <!-- Hidrogeología -->
+
+                    @if (controlador.Equals("Hidrogeologia"))
+                    {
+                        @:<li class="nav-parent nav-expanded nav-active">
+                    }else {
+                        @:<li class="nav-parent">
+                    }
+
+                    <a>
+                        <i class="fa fa-list-alt" aria-hidden="true"></i>
+                        <span>HIDROGEOLOGIA</span>
+                    </a>
+                    <ul class="nav nav-children">
+                        @if (action.Equals("Index"))
+                        {
+                            @:<li class="nav-active">
+                        }else {
+                            @: <li>
+                    }
+
+                      <a href="@Url.Action("Index", "Hidrogeologia")">Portada</a>
+                    </li>
+                    </ul>
+                </li>
+
+
+                    <!-- GEOMETALURGIA-->
+
+                    @if (controlador.Equals("Geometalurgia"))
+                    {
+                        @:<li class="nav-parent nav-expanded nav-active">
+                    }else {
+                        @:<li class="nav-parent">
+                    }
+
+                    <a>
+                        <i class="fa fa-list-alt" aria-hidden="true"></i>
+                        <span>GEOMETALURGIA</span>
+                    </a>
+                    <ul class="nav nav-children">
+                        @if (action.Equals("Index"))
+                        {
+                            @:<li class="nav-active">
+                        }
+                        else {
+                            @:<li>
+                        }
+
+                        <a href="@Url.Action("Index", "Geometalurgia")">Perforación Pila</a>
+                    </li>
+                  
+                </ul>
+                              <ul class="nav nav-children">
+                                  @if (action.Equals("RecuperacionPila"))
+                                  {
+                                      @:<li class="nav-active">
+                                  }else {
+                                      @:<li>
+                        }
+
+                                  <a href="@Url.Action("RecuperacionPila", "Geometalurgia")">Recuperación Pila</a>
+                              </li>
+
+                          </ul>
+                    <ul class="nav nav-children">
+                        <li>
+                            <a href="http://cmc01663:8080" target="_blank">Sist. Planta Piloto</a>
+                        </li>
+                    </ul>
+                      <ul class="nav nav-children">
+                                  @if (action.Equals("AllViewGeomet"))
+                                  {
+                                      @:<li class="nav-active">
+                                  }else {
+                                      @:<li>
+                        }
+
+                                  <a href="@Url.Action("AllViewGeomet", "Geometalurgia")">Dashboard</a>
+                              </li>
+
+                          </ul>
+
+                </li>
+
+
+
+                    <!-- DOCUMENTOS-->
+
+                    @if (controlador.Equals("Documentos"))
+                    {
+                        @:<li class="nav-parent nav-expanded nav-active">
+                    }
+                    else {
+                        @:<li class="nav-parent">
+                    }
+
+                    <a>
+                        <i class="fa fa-list-alt" aria-hidden="true"></i>
+                        <span>DOCUMENTOS</span>
+                    </a>
+                    <ul class="nav nav-children">
+                        @if (action.Equals("Index"))
+                        {
+                            @:<li class="nav-active">
+                        }
+                        else {
+                            @:<li>
+                        }
+
+                        <a href="@Url.Action("Index", "Documentos")">Digitalización de Carpetas Sondajes</a>
+                    </li>
+                    @if (action.Equals("Fotografia"))
+                    { @: <li class="nav-active">
+                        }
+                    else { @:<li>
+                        }
+
+                    <a href="@Url.Action("Fotografia", "Documentos")">Fotografía de Sondajes</a>
+                </li>
+                        @if (action.Equals("Petrografia"))
+                        { @:<li class="nav-active">
+                        }
+                        else { @:<li>
+                        }
+
+                        <a href="@Url.Action("Petrografia", "Documentos")">Petrografía</a>
+                    </li>
+                </ul>
+                </li>
+
+                    <!--Geologia CMCC-->
+                    @if (controlador.Equals("GeologiaQAQC"))
+                    {
+                        @:<li class="nav-parent nav-expanded nav-active">
+                    }else {
+                        @:<li class="nav-parent">
+                    }
+
+                    <a>
+                        <i class="fa fa-list-alt" aria-hidden="true"></i>
+                        <span>GEOLOGIA</span>
+                    </a>
+                    <ul class="nav nav-children">
+                        @if (action.Equals("Blancos") | action.Equals("Standard") | action.Equals("StandardNorm") | action.Equals("Duplicado"))
+                        {
+                            @:                            <li class="nav-parent nav-expanded nav-active">
+                    }
+                        else {
+                            @:                        <li class="nav-parent">
+                    }
+                        <a>
+                            <i class="fa fa-list-alt" aria-hidden="true"></i>
+                            <span>QAQC</span>
+                        </a>
+                        <ul class="nav nav-children">
+                            @if (action.Equals("Blancos"))
+                            {
+                                @:                                <li class="nav-active">
+                        }
+                            else { @:                            <li>
+                        }
+
+                            <a href="@Url.Action("Blancos", "GeologiaQAQC")">Blancos</a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-children">
+                        @if (action.Equals("Standard"))
+                        {
+                            @:                            <li class="nav-active">
+                      }
+                        else { @:                            <li>
+                      }
+                        <a href="@Url.Action("Standard", "GeologiaQAQC")">Standard</a>
+                    </li>
+                </ul>
+                <ul class="nav nav-children">
+                    @if (action.Equals("StandardNorm"))
+                    {
+                        @:                        <li class="nav-active">
+                       }
+                    else {
+                        @:                    <li>
+                       }
+
+                    <a href="@Url.Action("StandardNorm", "GeologiaQAQC")">StandardNorm</a>
+                </li>
+            </ul>
+            <ul class="nav nav-children">
+                @if (action.Equals("Duplicado"))
+                {
+                    @:                    <li class="nav-active">
+                        }
+                else {
+                    @:                <li>
+                        }
+
+                <a href="@Url.Action("Duplicado", "GeologiaQAQC")">Duplicado</a>
+            </li>
+        </ul>
+    </li>
+
+                    </ul>
+                    <ul class="nav nav-children">
+                        @if (action.Equals("AllView"))
+                        {
+                            @:                            <li class="nav-parent nav-expanded nav-active">
+                      }
+                        else { @:                    <li class="nav-parent">
+                      }
+                        <a>
+                            <i class="fa fa-list-alt" aria-hidden="true"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <ul class="nav nav-children">
+                            @if (action.Equals("AllView"))
+                            {
+                                @:                                <li class="nav-active">
+                        }
+                            else {
+                                @:                            <li>
+                        }
+
+<a href="@Url.Action("STATUS FY", "GeologiaQAQC")">Slider</a>
+</li>
+                    </ul>
+                    <ul class="nav nav-children">
+                        <li>
+                            <a href="http://cmc01663:8081/ddh/tv" target="_blank">Timeline Sondajes</a>
+                        </li>
+                    </ul>
+
+                                                     <ul class="nav nav-children">
+                                                         <li>
+                                                             <a href="http://bhpma002473:8080/Reports/powerbi/Geolog%C3%ADa/Estatus%20de%20FY" target="_blank">STATUS FY</a>
+                                                         </li>
+                                                     </ul>
+</ul>
+                    
+                        
+</li>
+                   
+                       
+               
+                 
+                              <!--Geotecnia CMCC-->
+                    
+                                        @if (controlador.Equals("Geotecnia")) {
+                                            @:<li class="nav-parent nav-expanded nav-active">
+                                        }
+                                        else { 
+                                            @: <li class="nav-parent">
+                                        }
+
+                                                <a>
+                                                    <i class="fa fa-list-alt" aria-hidden="true"></i>
+                                                    <span>GEOTECNIA</span>
+                                                </a>
+                                                <ul class="nav nav-children">
+                                                    @if (action.Equals("Index"))
+                                                    {
+                                                        @:<li class="nav-active">
+                                                    }else {
+                                                        @: <li>
+                                                    }
+                                               
+                                                               <a href="@Url.Action("Index", "Geotecnia")">Visualizar Recomendación</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+
+
+                </ul>
+            </nav>
+
+    
+        </div>
+
+    </div>
+
+</aside>

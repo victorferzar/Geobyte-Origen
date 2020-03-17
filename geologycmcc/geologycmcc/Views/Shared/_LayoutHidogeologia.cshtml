@@ -1,0 +1,155 @@
+﻿@using System.Security.Principal;
+
+<!doctype html>
+<html class="fixed">
+<head>
+
+    <!-- Basic -->
+    <meta charset="UTF-8">
+
+    <title>INTRANET GEOLOGY CMCC</title>
+    <meta name="author" content="GEOBYTE">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Web Fonts  -->
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/magnific-popup/magnific-popup.css" />
+
+    <!-- Specific Page Vendor CSS -->
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/select2/select2.css" />
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/bootstrap-colorpicker/css/bootstrap-colorpicker.css" />
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/bootstrap-timepicker/css/bootstrap-timepicker.css" />
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/dropzone/css/basic.css" />
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/dropzone/css/dropzone.css" />
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/bootstrap-markdown/css/bootstrap-markdown.min.css" />
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/summernote/summernote.css" />
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/summernote/summernote-bs3.css" />
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/codemirror/lib/codemirror.css" />
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/codemirror/theme/monokai.css" />
+
+    <link rel="stylesheet" href="~/Scripts/assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+
+    <link href="~/Scripts/assets/vendor/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="~/Scripts/assets/stylesheets/theme.css" />
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="~/Scripts/assets/stylesheets/skins/default.css" />
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="~/Scripts/assets/stylesheets/theme-custom.css">
+
+    <!-- Head Libs -->
+    <script src="~/Scripts/jquery.js"></script>
+</head>
+<body>
+    <section class="body">
+
+        <!-- start: header -->
+        <header class="header">
+            <div class="logo-container">
+                <a href="../" class="logo">
+
+                    <img src="~/Images/LOGO CERRO COLORADO BHP.png" height="35" />
+                </a>
+                <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+                    <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                </div>
+            </div>
+
+            <!-- start: search & user box -->
+            <div class="header-right">
+                <span class="separator"></span>
+
+                <div id="userbox" class="userbox">
+                    <a href="#" data-toggle="dropdown">
+
+                        <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
+                            <span class="name">Bienvenido:</span>
+                            <span class="name">@User.Identity.Name</span>
+
+                        </div>
+
+                    </a>
+
+
+                </div>
+            </div>
+            <!-- end: search & user box -->
+        </header>
+        <!-- end: header -->
+
+        <div class="inner-wrapper">
+
+            @Html.Partial("_Menu")
+
+
+            <section role="main" class="content-body">
+                <header class="page-header">
+                    <h2>INTRANET</h2>
+
+                    <div class="right-wrapper pull-right">
+                        <ol class="breadcrumbs">
+                            <li><span>Ubicación</span></li>
+                            <li><span>@HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()</span></li>
+                            <li><span>@HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString()</span></li>
+                        </ol>
+
+                        <div class="sidebar-right-toggle"></div>
+                    </div>
+                </header>
+
+                @RenderBody()
+
+                <!-- end: page -->
+            </section>
+        </div>
+    </section>
+
+    <!-- Vendor -->
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+    <script src="~/Scripts/assets/vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="~/Scripts/assets/vendor/nanoscroller/nanoscroller.js"></script>
+    <script src="~/Scripts/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/assets/vendor/magnific-popup/magnific-popup.js"></script>
+    <script src="~/Scripts/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+    <!-- Specific Page Vendor -->
+    <script src="~/Scripts/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+    <script src="~/Scripts/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+    <script src="~/Scripts/assets/vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    <script src="~/Scripts/assets/vendor/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+    <script src="~/Scripts/assets/vendor/fuelux/js/spinner.js"></script>
+    <script src="~/Scripts/assets/vendor/dropzone/dropzone.js"></script>
+    <script src="~/Scripts/assets/vendor/bootstrap-markdown/js/markdown.js"></script>
+    <script src="~/Scripts/assets/vendor/bootstrap-markdown/js/to-markdown.js"></script>
+    <script src="~/Scripts/assets/vendor/bootstrap-markdown/js/bootstrap-markdown.js"></script>
+    <script src="~/Scripts/assets/vendor/codemirror/lib/codemirror.js"></script>
+
+    <script src="~/Scripts/assets/vendor/bootstrap-maxlength/bootstrap-maxlength.js"></script>
+    <script src="~/Scripts/assets/vendor/ios7-switch/ios7-switch.js"></script>
+
+    <script src="~/Scripts/assets/vendor/modernizr/modernizr.js"></script>
+    <!-- Examples -->
+    <!-- Theme Base, Components and Settings -->
+    <script src="~/Scripts/assets/javascripts/theme.js"></script>
+    <!-- Theme Custom -->
+    <script src="~/Scripts/assets/javascripts/theme.custom.js"></script>
+    <!-- Theme Initialization Files -->
+    <script src="~/Scripts/assets/javascripts/theme.init.js"></script>
+    <script src="~/Scripts/assets/javascripts/forms/examples.advanced.form.js"> </script>
+
+    <script src="~/Scripts/modernizr-custom.js"></script>
+    <script src="~/Scripts/plugins/validate/jquery.validate.min.js"></script>
+    <script src="~/Scripts/plugins/dataTables/datatables.min.js"></script>
+    <script src="~/Scripts/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+</body>
+</html>
