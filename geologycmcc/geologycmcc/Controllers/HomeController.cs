@@ -43,7 +43,7 @@ AUSTEM_BEAST1\Austen
     {
         private RolData rd;
         DM_CC_SONEntities ddb;
-        public string connectionString = "data source=cmc01663;initial catalog=DM_CC_SON;integrated security=True;MultipleActiveResultSets=True;";
+        public string connectionString = "data source=(local);initial catalog=DM_CC_SON;integrated security=True;MultipleActiveResultSets=True;";
         public HomeController() {
             rd = new RolData();
 
